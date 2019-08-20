@@ -7,10 +7,12 @@ class Login extends Component {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            role: ''
         }
         this.Services = new Services()
     }
+  
 
     handleInputChange = e => {
         const { name, value } = e.target
@@ -19,17 +21,29 @@ class Login extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault()
-        const { username, password } = this.state
-        this.Services.login(username, password)
+        const { username, password, role } = this.state
+        this.Services.login(username, password, role)
             .then(theLoggedUser => {
                 this.setState({
                     username: '',
-                    password: ''
+                    password: '',
+                    role: ''
                 })
+
+                //  ARREGLAR ESTOOOOOOO EN APP.JS (setUser)
+
                 // this.props.setUser(theLoggedUser)
-                this.props.history.push('/professional/area')
+                // this.props.history.push('/professional/area')
+
+                console.log(theLoggedUser.data.role)
+
+                // if (this.state.role === 'PROFESSIONAL') {
+                //     this.props.history.push('/professional/area')
+                // } else {
+                //     this.props.history.push('/patient/area')
+                // }
             })
-            .catch(err => console.log(err.response.data.message))
+            .catch(err => console.log({err}))
     }
 
     render() {

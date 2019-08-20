@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Login from './components/Login';
-import ProfessionalSignup from './components/Professional-form';
-import ProfessionalArea from './components/Professional-area';
+import Navbar from './components/Navbar'
+import Login from './components/Login'
+import ProfessionalSignup from './components/Professional-form'
+import ProfessionalArea from './components/Professional-area'
+import PatientSignup from './components/Patient-form'
 
 
 
@@ -15,7 +16,7 @@ class App extends Component {
     super()
     this.state = { loggedInUser: null }
   }
-
+  
   render() {
     return (
       <>
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/auth/login" exact component={Login} />
           <Route path="/auth/signup" exact component={ProfessionalSignup} />
           <Route path="/professional/area" exact component={ProfessionalArea} />
+          <Route path="/professional/new-patient" exact component={PatientSignup} />
         </Switch>
       </>
     )
