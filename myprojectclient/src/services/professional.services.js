@@ -12,7 +12,6 @@ export default class ProfessionalServices {
 
     signupPatient = (username, password, professional) => this.profService.post('/new-patient', { username, password, professional })
     getPatients = () => this.profService.get('/getAllPatients')
-    getOnePatient = id => this.profService.get(`getOnePatient/${id}`)
-
-
+    getOnePatient = id => this.profService.get(`/getOnePatient/${id}`)
+    // deletePatient =  id => this.profService.post(`/deletePatient/${id}`)
 }

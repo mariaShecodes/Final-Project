@@ -9,23 +9,39 @@ class Navbar extends Component {
         this.services = new Services
     }
     
-
+    
     render() {
-
+        
         const saludo = this.props.userInSession ? this.props.userInSession.data.username : 'Hello baby'
+       
+        console.log(this.props.userRole)
 
         if(this.props.userInSession) {
-            return (
-                <div className="Navbar">
-                    <Link to="/">
-                        <img src="#" alt="Logo"></img>
-                        <span className="font-weight-light">Nombre del Proyecto</span>
-                    </Link>
-                    <Link to="/professional/area" onClick={this.logout}>Área Profesional</Link>
-                    <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
-                    <div>Bienvenido/a {saludo}</div>
-                </div>
-            )
+            if(this.props.userRole == 'PROFESSIONAL') {
+                return (
+                    <div className="Navbar">
+                        <Link to="/">
+                            <img src="#" alt="Logo"></img>
+                            <span className="font-weight-light">Nombre del Proyecto</span>
+                        </Link>
+                        <Link to="/professional/area" onClick={this.logout}>Area Profesional</Link>
+                        <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
+                        <div>Bienvenido/a {saludo}</div>
+                    </div>
+                )
+            }  else {
+                return (
+                    <div className="Navbar">
+                        <Link to="/">
+                            <img src="#" alt="Logo"></img>
+                            <span className="font-weight-light">Nombre del Proyecto</span>
+                        </Link>
+                        <Link to="/patient/area" onClick={this.logout}>Area Personal</Link>
+                        <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
+                        <div>Bienvenido/a {saludo}</div>
+                    </div>
+                )
+            } 
         } else {
             return(
                 <div>

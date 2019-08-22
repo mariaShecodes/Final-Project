@@ -6,19 +6,35 @@ const bcrypt = require('bcryptjs');
 const Patient = require('../models/Patients');
 
 
-// ALL PATIENT   >>>> ¡¡¡¡¡¡¡ SACARLOS POR EL ID DEL PROFESIONAL QUE LOS HA CREADO !!!!!!!!!!
+
+// ALL PATIENT POR EL ID DEL PROFESIONAL QUE LOS HA CREADO
+
 router.get('/getAllPatients', (req, res) => {
-    Patient.find()
-        .then(allPatients => res.json(allPatients))
+    Patient.find({ professional: req.user._id })
+        .then(myPatients => res.json( myPatients ))
         .catch(err => console.log('Error', err))
 })
 
-// >>>>> ¡¡¡¡ SACAR UN ÚNICO PACIENTE POR SU ID!!!!!!
-router.get('/patient/:id', (req, res) => {
+
+// SACA UN ÚNICO PACIENTE POR SU ID
+
+router.get('/getOnePatient/:id', (req, res) => {
     Patient.findById(req.params.id)
         .then(thePatient => res.json(thePatient))
         .catch(err => console.log('Error', err))
 })
+
+// ELIMINA UN PACIENTE
+
+// router.post("/deletePatient/:id", (req, res, next) => {
+
+//     Patient.findByIdAndRemove(req.params.id)
+//       .then(() => console.log('Paciente eliminado'))
+//       .catch(function(err) {
+//         console.log("Hubo un error:", err);
+//       })
+// });
+
 
 
 // NEW PATIENT

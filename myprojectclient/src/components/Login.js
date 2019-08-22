@@ -34,7 +34,8 @@ class Login extends Component {
                 password: '',
             })
             this.props.setUser(theLoggedUser)
-            this.props.history.push('/professional/area')
+
+            theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
 
             console.log(theLoggedUser.data)
             console.log(theLoggedUser.data.role)

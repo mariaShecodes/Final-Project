@@ -14,7 +14,7 @@ const PatientCard = ({ username, _id }) => {
                     <h4>Tipo de Tto</h4>
                     <hr></hr>
                     <p>Description</p>
-                    <Link className="btn btn-sm btn-dark" to={`/patients/${_id}`}>Ver detalles</Link>  
+                    <Link className="btn btn-sm btn-dark" to={`/professional/details-patient/${_id}`}>Ver detalles</Link>  
                 </article>
             </div>
         </div>
