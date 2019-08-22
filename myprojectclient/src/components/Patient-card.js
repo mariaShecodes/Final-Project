@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// import '../styles/coaster-card.css'
-
 
 const PatientCard = ({ username, _id }) => {
 

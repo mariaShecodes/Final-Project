@@ -2,11 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const patientsSchema = new Schema({
-    username: { type: String, required: true },
-    lastName: { type: String },
+    username: { type: String, maxlength:15, required: true },
+    lastName: { type: String, maxlength:15 },
     email: {type: String },
     password: {type: String, required: true},
     role: { type: String, enum: ["PATIENT"], default: "PATIENT"},
+    professional: { type: String},
+    //professional: { type: Schema.Types.ObjectId, ref: "Professional" },
     // treatment: {
     //   type: String,
     //   enum: ["DEPRESSION", "ANXIETY", "PHOBIA", "HYPERACTIVITY", "EATING DISORDER", "SLEEP DISORDER"],

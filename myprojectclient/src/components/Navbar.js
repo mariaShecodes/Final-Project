@@ -1,20 +1,43 @@
 import React, { Component } from 'react'
-// import Logo from 'ruta' y en img src={}
-// import "./style..."
+import {Link} from 'react-router-dom'
+
+import Services from '../services/auth.services'
 
 class Navbar extends Component {
+    constructor(props) {
+        super(props)
+        this.services = new Services
+    }
+    
+
     render() {
-        return (
-            <div className="Navbar">
-                <a href="/">
-                    <img src="#" alt="Logo"></img>
-                    <span className="font-weight-light">Nombre del Proyecto</span>
-                </a>
-                <a href="/auth/login">Login</a>
-                <a href="/auth/signup">Signup</a>
-                <a href="/auth/logout">Logout</a>
-            </div>
-        )
+
+        const saludo = this.props.userInSession ? this.props.userInSession.data.username : 'Hello baby'
+
+        if(this.props.userInSession) {
+            return (
+                <div className="Navbar">
+                    <Link to="/">
+                        <img src="#" alt="Logo"></img>
+                        <span className="font-weight-light">Nombre del Proyecto</span>
+                    </Link>
+                    <Link to="/professional/area" onClick={this.logout}>Área Profesional</Link>
+                    <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
+                    <div>Bienvenido/a {saludo}</div>
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                <Link to="/">
+                        <img src="#" alt="Logo"></img>
+                        <span className="font-weight-light">Nombre del Proyecto</span>
+                </Link>
+                <Link to="/auth/login">Login</Link>
+                <Link to="/auth/signup">Signup</Link>
+                </div>
+            ) 
+        }
     }
 
 }

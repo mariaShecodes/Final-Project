@@ -3,7 +3,6 @@ import Services from '../services/professional.services'
 import { Link } from 'react-router-dom'
 
 import PatientCard from './Patient-card'
-import PatientForm from './Patient-form'
 
 
 class PatientList extends Component {
@@ -23,6 +22,7 @@ class PatientList extends Component {
     }
 
     render() {
+
         return (
             <>
                 <div className="container">

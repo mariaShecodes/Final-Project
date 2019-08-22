@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 const User = require('../models/Professional');
 
-
+// SIGNUP DE PROFESIONALES
 authRoutes.post('/signup', (req, res, next) => {
     const { username, lastName, email, password, job, speciality, numberCollegiate, examinationRooms } = req.body
 
@@ -36,7 +36,7 @@ authRoutes.post('/signup', (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
 
 
-        // SUPER IMPORTANTE!!!! ES LO QUE CREA EL NUEVO USER/PROFESSIONAL: pasar todas las propiedades
+        // SUPER IMPORTANTE!!!! ES LO QUE CREA EL NUEVO PROFESSIONAL: pasar todas las propiedades
 
         const aNewUser = new User({   
             username: username,

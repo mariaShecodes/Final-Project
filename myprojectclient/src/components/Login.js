@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Services  from '../services/auth.services'
+import AuthServices from '../services/auth.services'
 
 class Login extends Component {
 
@@ -8,40 +8,32 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            role: ''
+            role: '',
         }
-        this.Services = new Services()
+        this.authServices = new AuthServices()
     }
-  
-
     handleInputChange = e => {
         const { name, value } = e.target
         this.setState({ [name]: value })
+        
     }
-
+    
     handleFormSubmit = e => {
         e.preventDefault()
         const { username, password, role } = this.state
-        this.Services.login(username, password, role)
-            .then(theLoggedUser => {
-                this.setState({
-                    username: '',
-                    password: '',
-                    role: ''
-                })
+        this.authServices.login(username, password, role)
+        .then(theLoggedUser => {
+            this.setState({
+                username: '',
+                password: '',
+                role: '',
+            })
+            this.props.setUser(theLoggedUser)
+            this.props.history.push('/professional/area')
 
-                //  ARREGLAR ESTOOOOOOO EN APP.JS (setUser)
+            console.log(theLoggedUser.data)
+            console.log(theLoggedUser.data.role)
 
-                // this.props.setUser(theLoggedUser)
-                // this.props.history.push('/professional/area')
-
-                console.log(theLoggedUser.data.role)
-
-                // if (this.state.role === 'PROFESSIONAL') {
-                //     this.props.history.push('/professional/area')
-                // } else {
-                //     this.props.history.push('/patient/area')
-                // }
             })
             .catch(err => console.log({err}))
     }
@@ -54,7 +46,7 @@ class Login extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                     Usuario: <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange} /> <br></br>
                     Contraseña: <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} /> <br></br>
-                    
+                   
                     <input type="submit" value="Iniciar sesión" />
                 </form>
             </div>
