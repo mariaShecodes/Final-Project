@@ -1,10 +1,10 @@
 const express = require('express');
 const authRoutes = express.Router();
-
+const LocalStrategy = require('passport-local').Strategy;
+const Patient = require('../models/Patients')
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-
-const User = require('../models/Professional');
+const Professional = require('../models/Professional');
 
 // SIGNUP DE PROFESIONALES
 authRoutes.post('/signup', (req, res, next) => {
@@ -20,7 +20,7 @@ authRoutes.post('/signup', (req, res, next) => {
         return;
     }
 
-    User.findOne({ username }, (err, foundUser) => {
+    Professional.findOne({ username }, (err, foundUser) => {
 
         if (err) {
             res.status(500).json({ message: "Username check went bad." });
@@ -75,30 +75,107 @@ authRoutes.post('/signup', (req, res, next) => {
 
 
 authRoutes.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, theUser, failureDetails) => {
-        if (err) {
-            res.status(500).json({ message: 'Something went wrong authenticating user' });
-            return;
-        }
 
-        if (!theUser) {
-            // "failureDetails" contains the error messages
-            // from our logic in "LocalStrategy" { message: '...' }.
-            res.status(401).json(failureDetails);
-            return;
-        }
-
-        // save user in session
-        req.login(theUser, (err) => {
+    if(req.body.role){
+        passport.use(new LocalStrategy((username, password, next) => {
+            Professional.findOne({ username }, (err, foundUser) => {
+                if (err) {
+                    next(err);
+                    return;
+                }
+    
+                if (!foundUser) {
+                    next(null, false, { message: 'Usuario no registrado.' });
+                    return;
+                }
+    
+                if (!bcrypt.compareSync(password, foundUser.password)) {
+                    next(null, false, { message: 'Contraseña incorrecta.' });
+                    return;
+                }
+    
+                next(null, foundUser);
+            })
+    }));
+    
+    
+        passport.authenticate('local', (err, theUser, failureDetails) => {
             if (err) {
-                res.status(500).json({ message: 'Session save went bad.' });
+                res.status(500).json({ message: 'Something went wrong authenticating profe' });
                 return;
             }
+            console.log(theUser)
+            if (!theUser) {
+                // "failureDetails" contains the error messages
+                // from our logic in "LocalStrategy" { message: '...' }.
+                res.status(401).json(failureDetails);
+                return;
+            }
+    
+            // save user in session
+            req.login(theUser, (err) => {
+                if (err) {
+                    res.status(500).json({ message: 'Session save went bad.' });
+                    return;
+                }
+    
+                // We are now logged in (that's why we can also send req.user)
+                res.status(200).json(theUser);
+            });
+        })(req, res, next);
+    } else {
+        const patient = new LocalStrategy((username, password, next) => {
 
-            // We are now logged in (that's why we can also send req.user)
-            res.status(200).json(theUser);
-        });
-    })(req, res, next);
+            Patient.findOne({ username }, (err, foundUser) => {
+                if (err) {
+                    next(err);
+                    return;
+                }
+        
+                if (!foundUser) {
+                    next(null, false, { message: 'Usuario no registrado.' });
+                    return;
+                }
+        
+                if (!bcrypt.compareSync(password, foundUser.password)) {
+                    next(null, false, { message: 'Contraseña incorrecta.' });
+                    return;
+                }
+        
+                next(null, foundUser);
+            })
+        })
+        passport.use(patient);
+        
+        
+        
+
+        passport.authenticate('local', (err, theUser, failureDetails) => {
+            console.log(theUser, "asdasda")
+            if (err) {
+                console.log(err)
+                res.status(500).json({ message: 'Something went wrong authenticating user' });
+                return;
+            }
+    
+            if (!theUser) {
+                // "failureDetails" contains the error messages
+                // from our logic in "LocalStrategy" { message: '...' }.
+                res.status(401).json(failureDetails);
+                return;
+            }
+    
+            // save user in session
+            req.login(theUser, (err) => {
+                if (err) {
+                    res.status(500).json({ message: 'Session save went bad.' });
+                    return;
+                }
+                // We are now logged in (that's why we can also send req.user)
+                res.status(200).json(theUser);
+            });
+        })(req, res, next);
+    }
 });
 
 authRoutes.post('/logout', (req, res, next) => {
