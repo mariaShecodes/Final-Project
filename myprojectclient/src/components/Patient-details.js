@@ -33,9 +33,9 @@ class PatientDetails extends Component {
                             <p><strong>Registros</strong></p>
                             <Link className="btn btn-big btn-dark" to="/professional/area">Volver</Link>
                         </div>
-                        {/* <div className="col-md-4">
-                            <img src={this.state.coaster.imageUrl} alt={this.state.coaster.title}></img>
-                        </div> */}
+                        <div className="col-md-4">
+                            <img src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                        </div>
                     </div>
                 </article>
             </div>

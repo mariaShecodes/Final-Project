@@ -10,8 +10,9 @@ export default class Services {
         })
     }
 
-    newRegister = (title, dateCreated, role, context, think, feel, doing, happen, patient) => {
-        return this.service.post('/new-register', { title, dateCreated, role, context, think, feel, doing, happen, patient })}
+    newRegister = (title, dateCreated, role, context, think, feel, doing, happen, patient, imageUrl) => {
+        return this.service.post('/new-register', { title, dateCreated, role, context, think, feel, doing, happen, patient, imageUrl })}
     getRegister = () => this.service.get('/getAllRegisters')
     getOneRegister = id => this.service.get(`/getOneRegister/${id}`)
+  
 }

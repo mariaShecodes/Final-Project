@@ -14,7 +14,8 @@ class SignupPatient extends Component {
             password: '',
             role: "PATIENT",
             professional: JSON.parse(localStorage.getItem('userID')),  // Obtenemos el id del profesional a través de local storage
-            treatment: ''
+            treatment: '',
+            imageUrl: ''
         }
         this.service = new Services()
     }
@@ -26,9 +27,9 @@ class SignupPatient extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { username, lastName, email, password, role, professional, treatment } = this.state
+        const { username, lastName, email, password, role, professional, treatment, imageUrl } = this.state
 
-        this.service.signupPatient( username, lastName, email, password, role, professional, treatment  )  //.signupPatient lo coge del Services import
+        this.service.signupPatient( username, lastName, email, password, role, professional, treatment, imageUrl )  //.signupPatient lo coge del Services import
             .then(theNewUser => {
                 console.log(theNewUser)
                 
@@ -40,12 +41,25 @@ class SignupPatient extends Component {
                     password: '',
                     role: '',
                     professional: '',
-                    treatment: ''
+                    treatment: '',
+                    imageUrl: ''
                 })
                 this.props.history.push('/professional/area')
             })
             .catch(err => console.log({err}))
     }
+
+    handleFileUpload = e => {
+
+        const uploadData = new FormData();
+        uploadData.append("imageUrl", e.target.files[0]);
+
+        this.service.handleUpload(uploadData)
+            .then(response => this.setState({ imageUrl: response.data.secure_url }))
+            .catch(err => console.log(err))
+    }
+
+
 
     render() {
 
@@ -84,8 +98,11 @@ class SignupPatient extends Component {
                         <option value="Trast. del sueño">Trats. del sueño</option>
                     </select> 
                 </div>
+                <div className="form-group">
+                        <label htmlFor="input-img">Imagen</label>
+                        <input name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload} />
+                </div>
 
-              
                 <button type="submit" className="btn btn-dark btn-sm">Crear</button>
                 <button className="btn btn-dark btn-sm" onClick={this.props.closeModal}>Cerrar</button>
             </form>

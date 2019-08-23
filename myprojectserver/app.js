@@ -17,6 +17,7 @@ const flash = require("connect-flash");
 
 require('./configs/mongoose.config')
 require('./configs/passport.config')
+require('./configs/cloudinary.config')
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -74,6 +75,7 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth.routes'))
 app.use('/professional', require('./routes/professional.routes'))
 app.use('/patient', require('./routes/register-routes'))
+
 
 
 

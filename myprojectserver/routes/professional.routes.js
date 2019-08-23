@@ -2,9 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 const bcrypt = require('bcryptjs');
+const uploader = require('../configs/cloudinary.config');
 
 const Patient = require('../models/Patients');
 
+//CLOUDINARY
+
+router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+
+    if (!req.file) {
+        next(new Error('No file uploaded!'));
+        return;
+    }
+
+    res.json({ secure_url: req.file.secure_url });
+})
 
 
 // ALL PATIENT POR EL ID DEL PROFESIONAL QUE LOS HA CREADO
@@ -28,7 +40,7 @@ router.get('/getOnePatient/:id', (req, res) => {
 
 // NEW PATIENT
 router.post('/new-patient', (req, res, next) => {
-    const { username, lastName, email, password, role, professional, treatment } = req.body
+    const { username, lastName, email, password, role, professional, treatment, imageUrl } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -64,7 +76,8 @@ router.post('/new-patient', (req, res, next) => {
             password: hashPass,
             role: role,
             professional: professional,
-            treatment: treatment
+            treatment: treatment,
+            imageUrl: imageUrl
 
         });
         console.log(aNewPatient)

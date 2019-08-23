@@ -8,7 +8,6 @@ const patientsSchema = new Schema({
     password: {type: String, required: true},
     role: { type: String, default: "PATIENT"},
     professional: { type: String},
-    //professional: { type: Schema.Types.ObjectId, ref: "Professional" },
     treatment: {
       type: String,
       enum: ["Depresión", "Ansiedad", "Fobia", "Hiperactividad", "Trast. de la conducta alimentaria", "Trast. del sueño"],
