@@ -8,6 +8,7 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
+            role: ''
         }
         this.authServices = new AuthServices()
     }
@@ -32,6 +33,7 @@ class Login extends Component {
             this.setState({
                 username: '',
                 password: '',
+                role: ''
             })
             this.props.setUser(theLoggedUser)
 

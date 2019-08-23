@@ -11,6 +11,13 @@ router.get('/getAllRegisters', (req, res) => {
         .catch(err => console.log('Error', err))
 })
 
+// SACA UN ÚNICO REGISTRO POR SU ID
+
+router.get('/getOneRegister/:id', (req, res) => {
+    Register.findById(req.params.id)
+        .then(theRegister => res.json(theRegister))
+        .catch(err => console.log('Error', err))
+})
 
 // CREA UN NUEVO REGISTRO
 

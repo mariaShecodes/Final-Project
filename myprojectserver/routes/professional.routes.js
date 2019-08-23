@@ -24,22 +24,11 @@ router.get('/getOnePatient/:id', (req, res) => {
         .catch(err => console.log('Error', err))
 })
 
-// ELIMINA UN PACIENTE
-
-// router.post("/deletePatient/:id", (req, res, next) => {
-
-//     Patient.findByIdAndRemove(req.params.id)
-//       .then(() => console.log('Paciente eliminado'))
-//       .catch(function(err) {
-//         console.log("Hubo un error:", err);
-//       })
-// });
-
 
 
 // NEW PATIENT
 router.post('/new-patient', (req, res, next) => {
-    const { username, password, professional } = req.body
+    const { username, lastName, email, password, role, professional, treatment } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -70,8 +59,13 @@ router.post('/new-patient', (req, res, next) => {
         // SUPER IMPORTANTE!!!! ES LO QUE CREA EL NUEVO PACIENTE: pasar todas las propiedades
         const aNewPatient = new Patient ({   
             username: username,
+            lastName: lastName,
+            email: email,
             password: hashPass,
-            professional: professional
+            role: role,
+            professional: professional,
+            treatment: treatment
+
         });
         console.log(aNewPatient)
         
@@ -80,20 +74,7 @@ router.post('/new-patient', (req, res, next) => {
                 res.status(400).json({ message: 'Saving user to database went wrong.' });
                 return;
             }
-
-            // Automatically log in user after sign up
-            // .login() here is actually predefined passport method
-            req.login(aNewPatient, (err) => {
-
-                if (err) {
-                    res.status(500).json({ message: 'Login after signup went bad.' });
-                    return;
-                }
-
-                // Send the user's information to the frontend
-                // We can use also: res.status(200).json(req.user);
-                res.status(200).json(aNewPatient);
-            });
+            res.status(200).json(aNewPatient)
         });
     });
 });

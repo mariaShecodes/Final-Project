@@ -1,10 +1,10 @@
 const express = require('express');
 const authRoutes = express.Router();
 const LocalStrategy = require('passport-local').Strategy;
-const Patient = require('../models/Patients')
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const Professional = require('../models/Professional');
+const Patient = require('../models/Patients')
 
 // SIGNUP DE PROFESIONALES
 authRoutes.post('/signup', (req, res, next) => {
@@ -151,7 +151,8 @@ authRoutes.post('/login', (req, res, next) => {
         
 
         passport.authenticate('local', (err, theUser, failureDetails) => {
-            console.log(theUser, "asdasda")
+            console.log(theUser)
+            
             if (err) {
                 console.log(err)
                 res.status(500).json({ message: 'Something went wrong authenticating user' });

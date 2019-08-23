@@ -8,8 +8,11 @@ passport.serializeUser((loggedInUser, cb) => {
     cb(null, loggedInUser._id)})
 
 passport.deserializeUser((userIdFromSession, cb) => {
-        
+        console.log(userIdFromSession)
+        console.log("5d5c37cc7d83192cd2903ce7")
+        console.log("5d5fdc61efff3e0a8e1a9e13")
         Professional.findById(userIdFromSession, (err, userDocument) => {
+            console.log(userDocument)
             if (err) {
                 cb(err);
                 return;
@@ -19,7 +22,7 @@ passport.deserializeUser((userIdFromSession, cb) => {
                         cb(err);
                         return;
                     } else if(!userDocument){
-                        console.log("No es naide")
+                        console.log("No es nadie")
                     } else {
 
                         cb(null, userDocument);

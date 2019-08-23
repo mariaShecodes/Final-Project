@@ -13,11 +13,9 @@ class Navbar extends Component {
     render() {
         
         const saludo = this.props.userInSession ? this.props.userInSession.data.username : 'Hello baby'
-       
-        console.log(this.props.userRole)
 
         if(this.props.userInSession) {
-            if(this.props.userRole == 'PROFESSIONAL') {
+            if(this.props.userRole === 'PROFESSIONAL') {
                 return (
                     <div className="Navbar">
                         <Link to="/">
@@ -29,7 +27,7 @@ class Navbar extends Component {
                         <div>Bienvenido/a {saludo}</div>
                     </div>
                 )
-            }  else {
+            } else {
                 return (
                     <div className="Navbar">
                         <Link to="/">
@@ -41,7 +39,7 @@ class Navbar extends Component {
                         <div>Bienvenido/a {saludo}</div>
                     </div>
                 )
-            } 
+            }    
         } else {
             return(
                 <div>

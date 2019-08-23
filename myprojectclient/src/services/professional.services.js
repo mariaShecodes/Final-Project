@@ -1,17 +1,17 @@
 import axios from 'axios'
 
-export default class ProfessionalServices {
+export default class Services {
 
     constructor() {
 
-        this.profService = axios.create({
+        this.service = axios.create({
             baseURL: 'http://localhost:5000/professional',
             withCredentials: true
         })
     }
 
-    signupPatient = (username, password, professional) => this.profService.post('/new-patient', { username, password, professional })
-    getPatients = () => this.profService.get('/getAllPatients')
-    getOnePatient = id => this.profService.get(`/getOnePatient/${id}`)
-    // deletePatient =  id => this.profService.post(`/deletePatient/${id}`)
+    signupPatient = (username, lastName, email, password, role, professional, treatment ) => {
+        return this.service.post('/new-patient', { username, lastName, email, password, role, professional, treatment}) }
+    getPatients = () => this.service.get('/getAllPatients')
+    getOnePatient = id => this.service.get(`/getOnePatient/${id}`)
 }

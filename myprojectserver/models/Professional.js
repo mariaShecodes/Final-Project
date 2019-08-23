@@ -7,7 +7,7 @@ const professionalsSchema = new Schema({
     lastName: { type: String, required: true},
     email: { type: String, required: true },
     password: {type: String, required: true},
-    role: { type: String, enum: ["PROFESSIONAL"], default: "PROFESSIONAL"},
+    role: { type: String, default: "PROFESSIONAL"},
     job: { type: String, required: true },
     speciality: { type: String, required: true },
     numberCollegiate: {type: Number, required: true },
