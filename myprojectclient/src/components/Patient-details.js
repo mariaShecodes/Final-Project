@@ -2,21 +2,30 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/professional.services'
 
-
+import RegistersPatient from './Register-patient-details'
 
 
 class PatientDetails extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { patient: {} }
+        this.state = { 
+            patient: {}, 
+            registers: []
+        }
         this.service = new Services()
     }
 
     componentDidMount() {
         this.service.getOnePatient(this.props.match.params.id)
-            .then(response => this.setState({ patient: response.data }))
-            .catch(err => console.log('err', err))
+        .then(response => {
+            console.log(response.data)
+            console.log(response.data.registersPatient)
+            console.log(response.data.thePatient.username)
+
+           return this.setState({ patient: response.data.thePatient, registers: response.data.registersPatient })
+        })
+        .catch(err => console.log('err', err))
     }
 
     render() {
@@ -36,6 +45,12 @@ class PatientDetails extends Component {
                             <p><strong>Descripción:</strong> {this.state.patient.description}</p>
                             <hr></hr>
                             <p><strong>Registros</strong></p>
+
+                            <div className="row">
+                                {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
+                            </div>
+                            
+                        
                            
                             <Link className="btn btn-big btn-info" to="/professional/area">Volver</Link>
                         </div>

@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const uploader = require('../configs/cloudinary.config');
 
 const Patient = require('../models/Patients');
+const Register = require('../models/Register');
 
 //CLOUDINARY
 
@@ -31,9 +32,22 @@ router.get('/getAllPatients', (req, res) => {
 
 // SACA UN ÚNICO PACIENTE POR SU ID
 
+// router.get('/getOnePatient/:id', (req, res) => {
+//     Patient.findById(req.params.id)
+//         .then(thePatient => res.json(thePatient))
+//         .catch(err => console.log('Error', err))
+// })
+
+
+
+// SACA UN ÚNICO PACIENTE POR SU ID Y SUS REGISTROS
 router.get('/getOnePatient/:id', (req, res) => {
     Patient.findById(req.params.id)
-        .then(thePatient => res.json(thePatient))
+        .then(thePatient => {
+            Register.find({ patient: req.params.id }).then(registersPatient => 
+                res.json( {thePatient, registersPatient} )
+            )
+        })
         .catch(err => console.log('Error', err))
 })
 
