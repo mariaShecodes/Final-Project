@@ -1,25 +1,70 @@
-.image-portada {
-    width: 100vmax;
-    position: absolute;
-    z-index: 1;
+.section1 {
+    background-image: url('../components/image/image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 760px;
 }
 .slogan {
-    font-size: 2.5em;
+    font-size: 3em;
     color: rgb(26, 26, 26);
     width: 100%;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    z-index: 10;
+    padding-top: 5em;
   }
 .btn-home {
     width: 100%;
-    position: absolute;
     text-align: center;
-    margin-top: 30%;
-    z-index: 20;
+    padding-top: 3em;
+} 
+
+.span-intersection {
+    height: 2em;
+    background-color: rgb(247, 247, 247);
 }
 
-.image-data {
+.section2 {
+    background-image: url('../components/image/image01.png');
+    background-size: cover;
     width: 100vmax;
+    height: 760px;
+}
+.info-icon-pack {
+    margin-top: 15em;
+}
+.icon {
+    width: 20%;
+    margin-left: 40%; 
+}
+.text-icon {
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+    margin-top: 0.8em;
+    margin-bottom: 3em;
+}
+
+.footer {
+    background-color:  rgb(26, 26, 26);
+    color:  rgb(247, 247, 247);
+}
+.footer h3 {
+    padding-top: 1.2em;
+    margin-left: 1.2em;
+}
+.link-footer {
+    color: rgb(247, 247, 247);
+    text-decoration-line: none;
+}
+.link-footer:hover {
+    color: rgb(71, 214, 224);
+    text-decoration-line: none;
+}
+.address {
+    margin-right: 3.5em;
+    font-size: 0.8em;
+    text-align: right;
+}
+.address-complet {
+    padding-bottom: 1.2em;
+    margin-left: 4em;
 }
