@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const bcrypt = require('bcryptjs');
+
 const uploader = require('../configs/cloudinary.config');
 
 const Patient = require('../models/Patients');
@@ -38,7 +39,7 @@ router.get('/getOnePatient/:id', (req, res) => {
 
 
 
-// NEW PATIENT
+// SIGNUP PATIENT
 router.post('/new-patient', (req, res, next) => {
     const { username, lastName, email, password, role, professional, treatment, imageUrl } = req.body
 

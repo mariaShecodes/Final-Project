@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 import Services from '../services/auth.services'
+import '../styles/navbar.css'
 
 class Navbar extends Component {
     constructor(props) {
@@ -17,38 +18,45 @@ class Navbar extends Component {
         if(this.props.userInSession) {
             if(this.props.userRole === 'PROFESSIONAL') {
                 return (
-                    <div className="Navbar">
-                        <Link to="/">
-                            <img src="#" alt="Logo"></img>
-                            <span className="font-weight-light">Nombre del Proyecto</span>
-                        </Link>
-                        <Link to="/professional/area" onClick={this.logout}>Area Profesional</Link>
-                        <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
+                    <div>
+                        <div className="container">
+                            <div className="row">
+                                <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
+                                <div className="col-md-4">
+                                    <Link to="/professional/area" onClick={this.logout} className="link">Area Profesional</Link>
+                                    <Link to="/auth/logout" onClick={this.props.logout} className="link">Logout</Link>
+                                </div>
+                            </div>
+                        </div>
                         <div>Bienvenido/a {saludo}</div>
                     </div>
                 )
             } else {
                 return (
-                    <div className="Navbar">
-                        <Link to="/">
-                            <img src="#" alt="Logo"></img>
-                            <span className="font-weight-light">Nombre del Proyecto</span>
-                        </Link>
-                        <Link to="/patient/area" onClick={this.logout}>Area Personal</Link>
-                        <Link to="/auth/logout" onClick={this.props.logout}>Logout</Link>
+                    <div>
+                        <div className="container">
+                            <div className="row">
+                                <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
+                                <div className="col-md-4">
+                                    <Link to="/patient/area" onClick={this.logout} className="link">Area Personal</Link>
+                                    <Link to="/auth/logout" onClick={this.props.logout} className="link">Logout</Link>
+                                </div>
+                            </div>
+                        </div>
                         <div>Bienvenido/a {saludo}</div>
                     </div>
                 )
             }    
         } else {
             return(
-                <div>
-                <Link to="/">
-                        <img src="#" alt="Logo"></img>
-                        <span className="font-weight-light">Nombre del Proyecto</span>
-                </Link>
-                <Link to="/auth/login">Login</Link>
-                <Link to="/auth/signup">Signup</Link>
+                <div className="container">
+                    <div className="row">
+                        <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
+                        <div className="col-md-4">
+                            <Link to="/auth/login" className="link">Login</Link>
+                            <Link to="/auth/signup" className="link">Signup</Link>
+                        </div>
+                    </div>
                 </div>
             ) 
         }

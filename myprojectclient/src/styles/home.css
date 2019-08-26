@@ -1,0 +1,25 @@
+.image-portada {
+    width: 100vmax;
+    position: absolute;
+    z-index: 1;
+}
+.slogan {
+    font-size: 2.5em;
+    color: rgb(26, 26, 26);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+  }
+.btn-home {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 30%;
+    z-index: 20;
+}
+
+.image-data {
+    width: 100vmax;
+}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Services from '../services/professional.services'
 
 
+
+
 class PatientDetails extends Component {
 
     constructor(props) {
@@ -20,21 +22,22 @@ class PatientDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Detalles del Paciente elegido</h1>
+                <h1>Detalles del Paciente</h1>
                 <hr></hr>
                 <article>
                     <div className="row justify-content-center">
                         <div className="col-md-6">
-                            <h1>Detalles de {this.state.patient.username} {this.state.patient.lastName}</h1>
+                            <h2> {this.state.patient.username} {this.state.patient.lastName}</h2>
+                            <div className="col-md-4">
+                                <img src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                            </div>
                             <p>email: {this.state.patient.email}</p>
                             <h3>Tratamiento: {this.state.patient.treatment}</h3>
                             <p><strong>Descripción:</strong> {this.state.patient.description}</p>
                             <hr></hr>
                             <p><strong>Registros</strong></p>
-                            <Link className="btn btn-big btn-dark" to="/professional/area">Volver</Link>
-                        </div>
-                        <div className="col-md-4">
-                            <img src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                           
+                            <Link className="btn btn-big btn-info" to="/professional/area">Volver</Link>
                         </div>
                     </div>
                 </article>

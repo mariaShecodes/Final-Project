@@ -77,6 +77,4 @@ app.use('/professional', require('./routes/professional.routes'))
 app.use('/patient', require('./routes/register-routes'))
 
 
-
-
 module.exports = app;

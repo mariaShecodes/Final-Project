@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AuthServices from '../services/auth.services'
 
+import { Button, Form } from 'react-bootstrap'
+
 class Login extends Component {
 
     constructor(props) {
@@ -50,18 +52,30 @@ class Login extends Component {
 
         return (
             <div className="container">
-                <h1>Inicio de sesión</h1>
+                <h3>Inicio de sesión</h3>
                 <form onSubmit={this.handleFormSubmit}>
-                    Usuario: <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange} /> <br></br>
-                    Contraseña: <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} /> <br></br>
-                    Profesional? <input type="checkbox" name="role" value={this.state.role} onChange={this.handleCheckChange}></input>
-                    <input type="submit" value="Iniciar sesión" />
+
+                <Form.Label>Usuario</Form.Label>
+                    <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} placeholder="Nombre de Usuario" />
+         
+                <Form.Label>Contraseña</Form.Label>
+                    <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" />
+               
+                <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" />
+                </Form.Group>
+               
+                <Button variant="info" type="submit">Iniciar sesión</Button>
                 </form>
             </div>
-
         )
     }
 }
 
 export default Login
 
+
+{/* Usuario: <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+Contraseña: <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+Profesional? <input type="checkbox" name="role" value={this.state.role} onChange={this.handleCheckChange}></input>
+<input type="submit" value="Iniciar sesión" /> */}

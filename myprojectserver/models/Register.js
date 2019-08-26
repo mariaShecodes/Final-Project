@@ -7,6 +7,7 @@ const registersSchema = new Schema({
     dateCreated: {type: Date, default: Date.now },
     role: { type: String, default: 'REGISTER'} ,
     context:{ type: String, required: true },
+    imageUrl: { type: String },
     think: { type: String, required: true  },
     feel: { type: String, 
         enum: ['Feliz', 'Estresado/a', 'Indiferente', 'Preocupado/a', 'Triste', 'Aburrido/a', 'Furioso/a', 'Cansado/a', 'Genial'],

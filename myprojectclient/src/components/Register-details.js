@@ -20,7 +20,7 @@ class RegisterDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Detalles de Registro</h1>
+                <h1>Detalles del Registro</h1>
                 <hr></hr>
                 <article>
                     <div className="row justify-content-center">
@@ -35,9 +35,9 @@ class RegisterDetails extends Component {
                             <p><strong>¿Qué pasó después?</strong> {this.state.register.happen} </p>
                             <Link className="btn btn-big btn-dark" to="/patient/area">Volver</Link>
                         </div>
-                        {/* <div className="col-md-4">
-                            <img src={this.state.coaster.imageUrl} alt={this.state.coaster.title}></img>
-                        </div> */}
+                        <div className="col-md-4">
+                            <img src={this.state.register.imageUrl} alt={this.state.register.title}></img>
+                        </div>
                         
                     </div>
                 </article>

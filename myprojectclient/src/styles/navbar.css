@@ -1,0 +1,25 @@
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    color: rgb(26, 26, 26);
+}
+.container {
+    max-width: 95%;
+}
+.col-md-4 {
+    margin-top: 1.3em;
+    text-align: right;
+}
+.link {
+    margin: 1.2em;
+}
+.link:hover { 
+    color: rgb(182, 109, 182);
+    text-decoration-line: none;
+}
+.logo-link:hover {
+    color: rgb(182, 109, 182);
+    text-decoration-line: none;
+}
+    
+

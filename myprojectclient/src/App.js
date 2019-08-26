@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import AuthServices from './services/auth.services'
 import ProtectedRoute from './components/routes/ProtectedRoute'
 
+import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import ProfessionalSignup from './components/Professional-form'
@@ -55,14 +56,15 @@ class App extends Component {
   }
   
   render() {
-
+    
     this.fetchUser()
-
+    
     if(this.state.loggedInUser) {
-    return (
-      <>
+      return (
+        <>
         <Navbar setUser={this.setTheUser} userInSession={this.state.loggedInUser} userRole={this.state.loggedInUser.data.role} logout={this.logout} />
         <Switch>
+          <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
           <Route path="/professional/new-patient" exact component={PatientSignup} />
           <Route path="/professional/details-patient/:id" exact component={PatientDetail} />
@@ -79,6 +81,7 @@ class App extends Component {
         <Navbar setUser={this.setTheUser} userInSession={this.state.loggedInUser} logout={this.logout} />
 
         <Switch>
+          <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
           <ProtectedRoute path="/patient/area" user={this.state.loggedInUser} component={PatientArea} />
           <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} />

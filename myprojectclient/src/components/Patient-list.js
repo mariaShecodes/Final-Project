@@ -34,7 +34,7 @@ class PatientList extends Component {
                         <article>
                             <p>Añadir nuevo paciente</p>
                             <hr></hr>
-                            <Link className="btn btn-sm btn-dark" to={'/professional/new-patient'}>Añadir</Link>  
+                            <Link className="btn btn-sm btn-info" to={'/professional/new-patient'}>Añadir</Link>  
                         </article>
                     </div>
                 </div>

@@ -1,18 +1,20 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
+
 const Professional = require('../models/Professional');
 const Patient = require('../models/Patients')
 
 passport.serializeUser((loggedInUser, cb) => {
+    
     cb(null, loggedInUser._id)})
 
 passport.deserializeUser((userIdFromSession, cb) => {
         console.log(userIdFromSession)
-        console.log("5d5c37cc7d83192cd2903ce7")
-        console.log("5d5fdc61efff3e0a8e1a9e13")
         Professional.findById(userIdFromSession, (err, userDocument) => {
+
             console.log(userDocument)
+
             if (err) {
                 cb(err);
                 return;

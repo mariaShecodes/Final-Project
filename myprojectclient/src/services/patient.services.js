@@ -10,9 +10,9 @@ export default class Services {
         })
     }
 
-    newRegister = (title, dateCreated, role, context, think, feel, doing, happen, patient, imageUrl) => {
-        return this.service.post('/new-register', { title, dateCreated, role, context, think, feel, doing, happen, patient, imageUrl })}
+    newRegister = (title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient ) => {
+        return this.service.post('/new-register', { title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient })}
     getRegister = () => this.service.get('/getAllRegisters')
     getOneRegister = id => this.service.get(`/getOneRegister/${id}`)
-  
+    handleUpload = theFile => this.service.post('/upload', theFile)
 }

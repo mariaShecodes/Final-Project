@@ -11,6 +11,7 @@ class NewRegister extends Component {
             dateCreated: '',
             role: 'REGISTER',
             context: '',
+            imageUrl: '',
             think: '',
             feel: '',
             doing: '',
@@ -26,9 +27,9 @@ class NewRegister extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { title, dateCreated, role, context, think, feel, doing, happen, patient } = this.state
+        const { title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient } = this.state
 
-        this.service.newRegister( title, dateCreated, role, context, think, feel, doing, happen, patient )  //.newRegister lo coge del Services import
+        this.service.newRegister( title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient )  //.newRegister lo coge del Services import
             .then(theNewRegister => {
                 console.log(theNewRegister)
 
@@ -38,6 +39,7 @@ class NewRegister extends Component {
                     dateCreated: '',
                     role: '',
                     context: '',
+                    imageUrl: '',
                     think: '',
                     feel: '',
                     doing: '',
@@ -48,6 +50,16 @@ class NewRegister extends Component {
                 this.props.history.push('/patient/area')
             })
             .catch(err => console.log({err}))
+    }
+
+    handleFileUpload = e => {
+
+        const uploadData = new FormData();
+        uploadData.append("imageUrl", e.target.files[0]);
+
+        this.service.handleUpload(uploadData)
+            .then(response => this.setState({ imageUrl: response.data.secure_url }))
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -70,6 +82,10 @@ class NewRegister extends Component {
                 <div className="form-group">
                     <label htmlFor="input-context">¿Dónde estoy?</label>
                     <input name="context" type="text" className="form-control" id="input-context" onChange={this.handleChangeInput} />
+                </div>
+                <div className="form-group">
+                        <label htmlFor="input-img">Imagen del lugar</label>
+                        <input name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="input-think">¿Qué pienso?</label>

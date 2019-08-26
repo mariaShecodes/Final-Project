@@ -1,16 +1,33 @@
 const express = require('express');
 const authRoutes = express.Router();
+
 const LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+
 const Professional = require('../models/Professional');
 const Patient = require('../models/Patients')
 
+const uploader = require('../configs/cloudinary.config');
+
+//CLOUDINARY
+authRoutes.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+
+    if (!req.file) {
+        next(new Error('No file uploaded!'));
+        return;
+    }
+    res.json({ secure_url: req.file.secure_url });
+})
+
+
 // SIGNUP DE PROFESIONALES
 authRoutes.post('/signup', (req, res, next) => {
-    const { username, lastName, email, password, job, speciality, numberCollegiate, examinationRooms } = req.body
+    const { username, lastName, email, password, role, job, speciality, numberCollegiate, examinationRooms, imageUrl } = req.body
+    
 
-    if (!username || !lastName || !password) {
+    if (!username || !password) {
+        console.log(password, "consolelog raro")
         res.status(400).json({ message: 'Provide username and password' });
         return;
     }
@@ -37,26 +54,28 @@ authRoutes.post('/signup', (req, res, next) => {
 
 
         // SUPER IMPORTANTE!!!! ES LO QUE CREA EL NUEVO PROFESSIONAL: pasar todas las propiedades
-
-        const aNewUser = new User({   
+        
+        const aNewUser = new Professional({   
             username: username,
             lastName: lastName,
             email: email,
             password: hashPass,
+            role: role,
             job: job, 
             speciality: speciality, 
             numberCollegiate: numberCollegiate, 
-            examinationRooms: examinationRooms
+            examinationRooms: examinationRooms,
+            imageUrl: imageUrl
         });
-
+        
+  
         aNewUser.save(err => {
             if (err) {
                 res.status(400).json({ message: 'Saving user to database went wrong.' });
                 return;
             }
 
-            // Automatically log in user after sign up
-            // .login() here is actually predefined passport method
+           
             req.login(aNewUser, (err) => {
 
                 if (err) {
@@ -147,8 +166,7 @@ authRoutes.post('/login', (req, res, next) => {
         })
         passport.use(patient);
         
-        
-        
+    
 
         passport.authenticate('local', (err, theUser, failureDetails) => {
             console.log(theUser)
