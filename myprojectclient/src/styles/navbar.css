@@ -3,6 +3,9 @@
     font-size: 3em;
     color: rgb(26, 26, 26);
 }
+.logo-session {
+    margin-top: 0.2em;
+}
 .container {
     max-width: 95%;
 }
@@ -10,7 +13,7 @@
     margin-top: 1.3em;
     text-align: right;
 }
-.link {
+.link-simple {
     margin: 1.2em;
 }
 .link:hover { 
@@ -21,20 +24,32 @@
     color: rgb(71, 214, 224);
     text-decoration-line: none;
 }
+.identity {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.8em;
+    align-items: center;
+    margin-top: 1.2em;
+    margin-right: 2em;
+}
 .saludo {
-    text-align: right;
+    margin-right: 1.1em;
+
 }
 .image-user {
-    width: 20%;
-    text-align: right;
-
-
+    width: 50px;
+    border-radius: 50%;
+    padding-bottom: 1.1px;
+    padding-right: .6em;
 }
-
-
 .link-professional {
     font-size: 1.1em;
     margin-left: 1.1em;
 }
+.btn-link {
+    color: rgb(26, 26, 26);
+}
+
+
     
 

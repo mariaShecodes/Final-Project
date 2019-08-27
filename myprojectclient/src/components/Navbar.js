@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import Services from '../services/auth.services'
 
-
 import '../styles/navbar.css'
 
 class Navbar extends Component {
@@ -29,16 +28,18 @@ class Navbar extends Component {
                     <div>
                         <div className="container">
                             <div className="row">
-                                <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
+                                <Link to="/" className="col-md-8 font-weight-light logo logo-link logo-session">ThinkApp</Link>
                                 <div className="col-md-4">
-                                    <Link to="/professional/area" onClick={this.logout} className="link-professional">Area Profesional</Link>
-                                    <Link to='/professional/new-patient' className="link-professional">Añadir Paciente</Link>  
-                                    <Link to="/auth/logout" onClick={this.props.logout} className="link-professional">Logout</Link>
+                                    <div className="row">
+                                        <Link to="/professional/area" onClick={this.logout} className="link-professional link" ink>Area Profesional</Link>
+                                        <Link to='/professional/new-patient' className="link-professional link">Añadir Paciente</Link>  
+                                        <Link to="/" onClick={this.props.logout} className="link-professional link">Logout</Link>
+                                    </div>
+                                    <div className="row identity">
+                                        <div className="saludo">Bienvenido/a {saludo}</div>
+                                        <img src={image} alt="Image user" className="image-user"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="identi">
-                                <div className="saludo">Bienvenido/a {saludo}</div>
-                                <img src={image} alt="Image user" className="image-user"/>
                             </div>
                         </div>
                     </div>
@@ -48,11 +49,11 @@ class Navbar extends Component {
                     <div>
                         <div className="container">
                             <div className="row">
-                                <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
+                                <Link to="/" className="col-md-8 font-weight-light logo logo-link logo-session">ThinkApp</Link>
                                 <div className="col-md-4">
                                     <Link to="/patient/area" onClick={this.logout} className="link">Area Personal</Link>
                                     <Link to='/patient/new-register'>Añadir Autorregistro</Link> 
-                                    <Link to="/auth/logout" onClick={this.props.logout} className="link">Logout</Link>
+                                    <Link to="/" onClick={this.props.logout} className="link">Logout</Link>
                                 </div>
                             </div>
                         </div>
@@ -66,9 +67,9 @@ class Navbar extends Component {
                     <div className="row">
                         <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
                         <div className="col-md-4">
-                            <Button variant="primary" onClick={() => this.props.handleShow()}>Login</Button>
+                            <Button className="link" variant="link" size="lg" onClick={() => this.props.handleShow()}>Login</Button>
                             {/* <Link to="/auth/login" className="link">Login</Link> */}
-                            <Link to="/auth/signup" className="link">Signup</Link>
+                            <Link to="/auth/signup" className="link-simple link">Signup</Link>
                         </div>
                     </div>
                 </div>

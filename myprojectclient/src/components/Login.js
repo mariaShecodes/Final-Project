@@ -39,11 +39,12 @@ class Login extends Component {
                 role: ''
             })
             this.props.setUser(theLoggedUser)
+
            
         // SUSTITUIMOS LA LÍNEA DE ABAJO POR LA PROPS QUE HEMOS DEFINIDO EN APP.JS
-        
             // theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
             this.props.checkRedirect(theLoggedUser)
+
 
             console.log(theLoggedUser.data)
             console.log(theLoggedUser.data.role)
@@ -68,7 +69,7 @@ class Login extends Component {
                     <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" />
                 </Form.Group>
                
-                <Button variant="info" type="submit">Iniciar sesión</Button>
+                <Button variant="info" type="submit" className="button-session">Iniciar sesión</Button>
                 </form>
             </div>
         )

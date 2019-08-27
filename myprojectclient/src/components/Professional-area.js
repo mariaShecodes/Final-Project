@@ -11,7 +11,8 @@ class ProfArea extends Component {
     render() {
         return (
             <div>
-                <h1>Estás en tu area privada de profesional</h1>
+                <h2 className="title-window">Area Profesional</h2>
+                <hr></hr>
                 <PatientsList />
             </div>
         )

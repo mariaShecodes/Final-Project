@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import AuthServices from './services/auth.services'
 import ProtectedRoute from './components/routes/ProtectedRoute'
 
+import { withRouter } from 'react-router'  // Nos sirve para traernos el history y redirigir en el login
+
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
@@ -16,9 +18,6 @@ import PatientArea from './components/Patient-area'
 import NewRegister from './components/Register-form'
 import RegisterDetail from './components/Register-details'
 import {Modal} from 'react-bootstrap'
-
-import { withRouter } from 'react-router'  // Nos sirve para traernos el history y redirigir en el login
-
 
 
 class App extends Component {
@@ -69,6 +68,7 @@ class App extends Component {
     theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
   }
 
+
   render() {
     
     this.fetchUser()
@@ -106,7 +106,7 @@ class App extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title><h3>Inicio de sesión</h3></Modal.Title>
+            <Modal.Title><h3>Iniciar sesión</h3></Modal.Title>
           </Modal.Header>
           <Modal.Body><Login setUser={this.setTheUser} checkRedirect={this.checkRedirect} /></Modal.Body>
         </Modal>

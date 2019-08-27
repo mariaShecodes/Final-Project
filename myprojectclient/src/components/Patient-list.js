@@ -26,14 +26,14 @@ class PatientList extends Component {
         return (
             <>
                 <div className="container">
-                    <h1>Listado de Pacientes</h1>
+                    <h3>Listado de Pacientes</h3>
                     <div className="row">
                         {this.state.patients && this.state.patients.map(patient => <PatientCard key={patient._id} {...patient} />)}
                     </div>
                     <div>
                         <article>
-                            <p>Añadir nuevo paciente</p>
                             <hr></hr>
+                            <p>Añadir nuevo paciente</p>
                             <Link className="btn btn-sm btn-info" to={'/professional/new-patient'}>Añadir</Link>  
                         </article>
                     </div>
