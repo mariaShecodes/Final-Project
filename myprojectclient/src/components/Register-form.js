@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Services  from '../services/patient.services'
 
+import {Link} from 'react-router-dom'
+
 
 class NewRegister extends Component {
 
@@ -115,7 +117,9 @@ class NewRegister extends Component {
                     <input name="happen" type="text" className="form-control" id="input-happen" onChange={this.handleChangeInput} />
                 </div>
                 <button type="submit" className="btn btn-dark btn-sm">Crear</button>
-                <button className="btn btn-dark btn-sm" onClick={this.props.closeModal}>Cerrar</button>
+                <button>
+                    <Link to="/patient/area" className="btn btn-dark btn-sm">Cerrar</Link>
+                </button>
             </form>
         </>
            

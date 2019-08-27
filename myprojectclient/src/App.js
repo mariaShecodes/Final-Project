@@ -15,16 +15,25 @@ import PatientDetail from './components/Patient-details'
 import PatientArea from './components/Patient-area'
 import NewRegister from './components/Register-form'
 import RegisterDetail from './components/Register-details'
+import {Modal} from 'react-bootstrap'
+
+import { withRouter } from 'react-router'  // Nos sirve para traernos el history y redirigir en el login
 
 
 
 class App extends Component {
 
-  constructor() {
-    super()
-    this.state = { loggedInUser: null }     // loggerInUser te lo traes del ProtectedRoute  
+  constructor(props) {
+    super(props)
+    this.state = { loggedInUser: null, show: false }     // loggerInUser te lo traes del ProtectedRoute  
     this.authServices = new AuthServices()
   }
+
+  // MODAL DE LOGIN
+  setShow = (value) => this.setState({show: value})
+  handleShow = () => this.setShow(true)
+  handleClose = () => this.setShow(false)
+
 
   setTheUser = user => {
     this.setState({ loggedInUser: user })
@@ -55,14 +64,20 @@ class App extends Component {
     }
   }
   
+  // INDICAMOS LA RUTA TRAS LOGUEARSE SEGÚN EL ROL DE LA PERSONA
+  checkRedirect = (theLoggedUser)=> {
+    theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
+  }
+
   render() {
     
     this.fetchUser()
+    console.log(this.props)
     
     if(this.state.loggedInUser) {
       return (
         <>
-        <Navbar setUser={this.setTheUser} userInSession={this.state.loggedInUser} userRole={this.state.loggedInUser.data.role} logout={this.logout} />
+        <Navbar  setUser={this.setTheUser} userInSession={this.state.loggedInUser} userRole={this.state.loggedInUser.data.role} userImage={this.state.loggedInUser.data.imageUrl}logout={this.logout} />
         <Switch>
           <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
@@ -78,18 +93,26 @@ class App extends Component {
   } else {
     return (
       <>
-        <Navbar setUser={this.setTheUser} userInSession={this.state.loggedInUser} logout={this.logout} />
+      {/* EN ESTA NAVBAR LE PASAMOS LAS FUNCTION DE MODAL PARA EL LOGIN */}
+        <Navbar setShow={this.setShow} handleShow={this.handleShow} handleClose={this.handleClose} setUser={this.setTheUser} userInSession={this.state.loggedInUser} logout={this.logout} />
 
         <Switch>
           <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
           <ProtectedRoute path="/patient/area" user={this.state.loggedInUser} component={PatientArea} />
           <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} />
-          <Route path="/auth/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} />
+          {/* <Route path="/auth/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}
         </Switch>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title><h3>Inicio de sesión</h3></Modal.Title>
+          </Modal.Header>
+          <Modal.Body><Login setUser={this.setTheUser} checkRedirect={this.checkRedirect} /></Modal.Body>
+        </Modal>
       </>
     )
   }
 }
 }
-export default App;
+export default withRouter(App);

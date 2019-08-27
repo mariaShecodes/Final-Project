@@ -9,7 +9,7 @@ class PatientList extends Component {
 
     constructor() {
         super()
-        this.state = {patients: []}
+        this.state = {patients: [] }
         this.services = new Services()
     }
 

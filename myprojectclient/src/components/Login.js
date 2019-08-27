@@ -3,6 +3,8 @@ import AuthServices from '../services/auth.services'
 
 import { Button, Form } from 'react-bootstrap'
 
+import '../styles/login.css'
+
 class Login extends Component {
 
     constructor(props) {
@@ -17,7 +19,6 @@ class Login extends Component {
     handleInputChange = e => {
         const { name, value } = e.target
         this.setState({ [name]: value })
-        
     }
 
     handleCheckChange = e => {
@@ -38,8 +39,11 @@ class Login extends Component {
                 role: ''
             })
             this.props.setUser(theLoggedUser)
-
-            theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
+           
+        // SUSTITUIMOS LA LÍNEA DE ABAJO POR LA PROPS QUE HEMOS DEFINIDO EN APP.JS
+        
+            // theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
+            this.props.checkRedirect(theLoggedUser)
 
             console.log(theLoggedUser.data)
             console.log(theLoggedUser.data.role)
@@ -51,17 +55,16 @@ class Login extends Component {
     render() {
 
         return (
-            <div className="container">
-                <h3>Inicio de sesión</h3>
+            <div className="login">
                 <form onSubmit={this.handleFormSubmit}>
 
-                <Form.Label>Usuario</Form.Label>
+                <Form.Label className="label-login">Usuario</Form.Label>
                     <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} placeholder="Nombre de Usuario" />
          
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label className="label-login">Contraseña</Form.Label>
                     <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" />
                
-                <Form.Group controlId="formBasicCheckbox">
+                <Form.Group controlId="formBasicCheckbox" className="label-login">
                     <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" />
                 </Form.Group>
                

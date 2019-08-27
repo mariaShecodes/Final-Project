@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Services  from '../services/professional.services'
 
+import {Link} from 'react-router-dom'
+
 
 
 class SignupPatient extends Component {
@@ -32,9 +34,9 @@ class SignupPatient extends Component {
         this.service.signupPatient( username, lastName, email, password, role, professional, treatment, imageUrl )  //.signupPatient lo coge del Services import
             .then(theNewUser => {
                 console.log(theNewUser)
-                
-                // LIMPIA! Now we set a new state to have empty fields  
-                this.setState({
+
+                 // LIMPIA! Now we set a new state to have empty fields  
+                 this.setState({
                     username: '',
                     lastName:'',
                     email: '',
@@ -45,6 +47,8 @@ class SignupPatient extends Component {
                     imageUrl: ''
                 })
                 this.props.history.push('/professional/area')
+               
+           
             })
             .catch(err => console.log({err}))
     }
@@ -104,7 +108,9 @@ class SignupPatient extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-dark btn-sm">Crear</button>
-                <button className="btn btn-dark btn-sm" onClick={this.props.closeModal}>Cerrar</button>
+                <button>
+                    <Link to="/professional/area" className="btn btn-dark btn-sm">Cerrar</Link>
+                </button>
             </form>
         </>
            

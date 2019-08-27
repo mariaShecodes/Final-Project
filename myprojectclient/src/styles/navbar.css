@@ -21,5 +21,20 @@
     color: rgb(71, 214, 224);
     text-decoration-line: none;
 }
+.saludo {
+    text-align: right;
+}
+.image-user {
+    width: 20%;
+    text-align: right;
+
+
+}
+
+
+.link-professional {
+    font-size: 1.1em;
+    margin-left: 1.1em;
+}
     
 
