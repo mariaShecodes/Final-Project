@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import PatientsList from './Patient-list'
 
+
 class ProfArea extends Component {
 
     constructor() {
-        super()
-        this.state = {}
+        super( )
+        this.state = { }
     }
-    
+
     render() {
         return (
             <div>
@@ -19,3 +20,5 @@ class ProfArea extends Component {
     }
 }
 export default ProfArea
+
+

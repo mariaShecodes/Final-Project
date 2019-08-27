@@ -91,7 +91,7 @@ class SignupPatient extends Component {
                     <input name="password" type="password" className="form-control" id="input-password" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <p>Tratamiento</p>
+                    <label>Tratamiento</label>
                     <select name="treatment" id="input-treatment" selected={this.state.treatment} onChange={this.handleChangeInput} >
                         <option disabled selected value>Select an option</option>
                         <option value="Depresión">Depresión</option>
@@ -107,10 +107,9 @@ class SignupPatient extends Component {
                         <input name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload} />
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-sm">Crear</button>
-                <button>
-                    <Link to="/professional/area" className="btn btn-dark btn-sm">Cerrar</Link>
-                </button>
+                <button type="submit" className="btn btn-info btn-sm">Crear</button>
+                <Link to="/professional/area" className="btn btn-info btn-sm">Cerrar</Link>
+                
             </form>
         </>
            

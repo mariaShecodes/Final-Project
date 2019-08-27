@@ -1,0 +1,30 @@
+h4 {
+    text-align: center;
+}
+.form-professional {
+   width: 70%;
+   margin-left: 20%;
+   margin-top: 2em;
+}
+.form-control {
+    width: 60%;
+}
+.btn {
+    margin-right: 2em;
+}
+.lastname {
+    margin-left: 27%;
+}
+.image {
+    display: flex; 
+    justify-content: flex-start;
+    margin-left: 8em;
+    margin-top: 1em;
+}
+.label-image {
+    padding-top: .5em;
+    margin-right: 1.1em;
+}
+.center {
+    margin-left: 9em;
+}

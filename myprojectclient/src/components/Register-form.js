@@ -64,6 +64,20 @@ class NewRegister extends Component {
             .catch(err => console.log(err))
     }
 
+    handleAudioUpload = url => {
+
+        console.log("This is the Blob ",url)
+       
+        let uploadData = new FormData();
+        uploadData.append("blob", url);
+
+        this.services.handleAudioUpload(uploadData)
+            .then(response => this.setState({ ...this.state, audio: response.secure_url }))
+            .catch(err => console.log(err))
+    }
+
+
+
     render() {
 
         return (
@@ -73,6 +87,7 @@ class NewRegister extends Component {
             <hr></hr>
 
             <form onSubmit={this.handleSubmit}>
+
                 <div className="form-group">
                     <label htmlFor="input-title">Título</label>
                     <input name="title" type="text" className="form-control" id="input-title" onChange={this.handleChangeInput} />
@@ -116,6 +131,7 @@ class NewRegister extends Component {
                     <label htmlFor="input-happen">¿Qué pasa después?</label>
                     <input name="happen" type="text" className="form-control" id="input-happen" onChange={this.handleChangeInput} />
                 </div>
+
                 <button type="submit" className="btn btn-dark btn-sm">Crear</button>
                 <button>
                     <Link to="/patient/area" className="btn btn-dark btn-sm">Cerrar</Link>
