@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.961dc60c.chunk.css",
+    "main.js": "/static/js/main.dd5021c4.chunk.js",
+    "main.js.map": "/static/js/main.dd5021c4.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.328819e1.js",
+    "runtime~main.js.map": "/static/js/runtime~main.328819e1.js.map",
+    "static/js/2.48333472.chunk.js": "/static/js/2.48333472.chunk.js",
+    "static/js/2.48333472.chunk.js.map": "/static/js/2.48333472.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c12c60ce1c70cc02a815ed1746db7dc1.js": "/precache-manifest.c12c60ce1c70cc02a815ed1746db7dc1.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.961dc60c.chunk.css.map": "/static/css/main.961dc60c.chunk.css.map",
+    "static/media/clipboard.svg": "/static/media/clipboard.852943b2.svg",
+    "static/media/group.svg": "/static/media/group.9c887338.svg",
+    "static/media/iceberg.svg": "/static/media/iceberg.93878f14.svg",
+    "static/media/home.css": "/static/media/image03.861befb4.jpg",
+    "static/media/negative-vote.svg": "/static/media/negative-vote.d62bc5b6.svg"
+  }
+}

@@ -110,7 +110,7 @@ class App extends Component {
           {/* <Route path="/auth/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}
         </Switch>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={this.state.show} onHide={this.handleClose} className="bsClass">
           <Modal.Header closeButton>
             <Modal.Title><h3>Iniciar sesión</h3></Modal.Title>
           </Modal.Header>

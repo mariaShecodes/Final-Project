@@ -77,4 +77,8 @@ app.use('/professional', require('./routes/professional.routes'))
 app.use('/patient', require('./routes/register-routes'))
 
 
+app.use((req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+  });
+
 module.exports = app;

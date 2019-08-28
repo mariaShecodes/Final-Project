@@ -15,3 +15,7 @@ a {
   text-align: center;
   padding-top: .5em;
 }
+
+.bsClass {
+  background-color: brown;
+}
