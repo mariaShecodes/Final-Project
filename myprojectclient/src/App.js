@@ -24,15 +24,26 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { loggedInUser: null, show: false }     // loggerInUser te lo traes del ProtectedRoute  
+    this.state = { loggedInUser: null, show: false, showModalSignup: false }     // loggerInUser te lo traes del ProtectedRoute  
     this.authServices = new AuthServices()
   }
+  
+  // MODAL SIGNUP
+  handleModalOpen = () => this.setState({ showModalSignup: true })
+  handleModalClose = () => this.setState({ showModalSignup: false })
 
-  // MODAL DE LOGIN
+  //RUTA REDIRECCIÓN DEL SIGNUP DEL MODAL
+  redirectRoute = () =>  this.props.history.push('/professional/area')
+
+  // MODAL LOGIN
   setShow = (value) => this.setState({show: value})
   handleShow = () => this.setShow(true)
   handleClose = () => this.setShow(false)
-
+  
+  // INDICAMOS LA RUTA TRAS LOGUEARSE SEGÚN EL ROL DE LA PERSONA
+  checkRedirect = (theLoggedUser)=> {
+    theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
+  }
 
   setTheUser = user => {
     this.setState({ loggedInUser: user })
@@ -63,10 +74,6 @@ class App extends Component {
     }
   }
   
-  // INDICAMOS LA RUTA TRAS LOGUEARSE SEGÚN EL ROL DE LA PERSONA
-  checkRedirect = (theLoggedUser)=> {
-    theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
-  }
 
 
   render() {
@@ -100,7 +107,6 @@ class App extends Component {
           <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
           <ProtectedRoute path="/patient/area" user={this.state.loggedInUser} component={PatientArea} />
-          <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} />
           {/* <Route path="/auth/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}
         </Switch>
 
@@ -109,6 +115,17 @@ class App extends Component {
             <Modal.Title><h3>Iniciar sesión</h3></Modal.Title>
           </Modal.Header>
           <Modal.Body><Login setUser={this.setTheUser} checkRedirect={this.checkRedirect} /></Modal.Body>
+        </Modal>
+
+          {/* <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} /> */}
+       
+        {/* MODAL SIGNUP */}
+        <Modal show={this.state.showModalSignup} onHide={this.handleModalClose}>
+
+          <Modal.Body>
+              <ProfessionalSignup setUser={this.setTheUser}  redirectRoute={this.redirectRoute}/>
+          </Modal.Body>
+
         </Modal>
       </>
     )

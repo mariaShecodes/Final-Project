@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import Services from '../services/patient.services'
-import { Link } from 'react-router-dom'
 
 import RegisterCard from './Register-card'
+import RegisterForm from './Register-form'
+
+import { Modal } from 'react-bootstrap'
 
 
 class RegisterList extends Component {
 
     constructor() {
         super()
-        this.state = {registers: []}
+        this.state = {registers: [], showModal: false}
         this.services = new Services()
     }
 
@@ -21,23 +23,32 @@ class RegisterList extends Component {
             .catch(err => console.log(err))
     }
 
+    handleModalOpen = () => this.setState({ showModal: true })
+    handleModalClose = () => this.setState({ showModal: false })
+
+
+
     render() {
 
         return (
             <>
+                <article>
+                    <p>Añadir nuevo registro</p>
+                    <Modal show={this.state.showModal} onHide={this.handleModalClose}>
+                        <Modal.Body>
+                            <RegisterForm closeModal={this.handleModalClose} updateRegisterList={this.updateList} />
+                        </Modal.Body>
+                    </Modal>
+                    <button className="btn btn-info btn-big" onClick={this.handleModalOpen}>Añadir</button>
+                </article>
+                <hr></hr>
+                    
                 <div className="container">
                     <h1>Listado de Registros</h1>
                     <div className="row">
   
-                        {this.state.registers && this.state.registers.map(register => <RegisterCard key={register._id} {...register} />)}
+                        { this.state.registers.map(register => <RegisterCard key={register._id} {...register} />)}
                     
-                    </div>
-                    <div>
-                        <article>
-                            <p>Añadir nuevo registro</p>
-                            <hr></hr>
-                            <Link className="btn btn-sm btn-dark" to={'/patient/new-register'}>Añadir</Link>  
-                        </article>
                     </div>
                 </div>
             </>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
-// import '../styles/home.css'
+import '../styles/home.css'
 
 class Home extends Component {
     
@@ -11,13 +11,13 @@ class Home extends Component {
                 <section className="section1">
                     <p className="slogan">La psicología al alcance de tu mano</p>
                     <div className="btn-home">
-                        <Button variant="outline-secondary">Conócenos</Button>
+                        <Button variant="outline-secondary" href="#info">Conócenos</Button>
                     </div>
                 </section>
 
                 <div className="span-intersection"></div>
 
-                <section className="section2">
+                <section className="section2" id="info">
                     <Container>              
                         <Row>
                             <Col></Col>

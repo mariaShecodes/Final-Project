@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Services  from '../services/patient.services'
 
-import {Link} from 'react-router-dom'
-
 
 class NewRegister extends Component {
 
@@ -32,24 +30,9 @@ class NewRegister extends Component {
         const { title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient } = this.state
 
         this.service.newRegister( title, dateCreated, role, context, imageUrl, think, feel, doing, happen, patient )  //.newRegister lo coge del Services import
-            .then(theNewRegister => {
-                console.log(theNewRegister)
-
-                // LIMPIA! Now we set a new state to have empty fields  
-                this.setState({
-                    title: '',
-                    dateCreated: '',
-                    role: '',
-                    context: '',
-                    imageUrl: '',
-                    think: '',
-                    feel: '',
-                    doing: '',
-                    happen: '',
-                    patient: ''
-                    
-                })
-                this.props.history.push('/patient/area')
+            .then( x => {
+                this.props.closeModal()
+                this.props.updateRegisterList()
             })
             .catch(err => console.log({err}))
     }
@@ -64,17 +47,17 @@ class NewRegister extends Component {
             .catch(err => console.log(err))
     }
 
-    handleAudioUpload = url => {
+    // handleAudioUpload = url => {
 
-        console.log("This is the Blob ",url)
+    //     console.log("This is the Blob ",url)
        
-        let uploadData = new FormData();
-        uploadData.append("blob", url);
+    //     let uploadData = new FormData();
+    //     uploadData.append("blob", url);
 
-        this.services.handleAudioUpload(uploadData)
-            .then(response => this.setState({ ...this.state, audio: response.secure_url }))
-            .catch(err => console.log(err))
-    }
+    //     this.services.handleAudioUpload(uploadData)
+    //         .then(response => this.setState({ ...this.state, audio: response.secure_url }))
+    //         .catch(err => console.log(err))
+    // }
 
 
 
@@ -109,7 +92,7 @@ class NewRegister extends Component {
                     <input name="think" type="text-area" className="form-control" id="input-think" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                     <p>¿Cómo me siento?</p>
+                     <label>¿Cómo me siento? </label>
                      <select name="feel" id="input-feel" selected={this.state.feel} onChange={this.handleChangeInput} >
                          <option disabled selected value>Select an option</option>
                          <option value="Feliz">Feliz</option>
@@ -125,17 +108,15 @@ class NewRegister extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="input-doing">¿Qué hago?</label>
-                    <input name="doing" type="text" className="form-control" id="input-doing" onChange={this.handleChangeInput} />
+                    <textarea name="doing" type="text-area" className="form-control" id="input-doing" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="input-happen">¿Qué pasa después?</label>
-                    <input name="happen" type="text" className="form-control" id="input-happen" onChange={this.handleChangeInput} />
+                    <textarea name="happen" type="text-area" className="form-control" id="input-happen" onChange={this.handleChangeInput} />
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-sm">Crear</button>
-                <button>
-                    <Link to="/patient/area" className="btn btn-dark btn-sm">Cerrar</Link>
-                </button>
+                <button type="submit" className="btn btn-info btn-sm">Crear</button>
+                <button className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</button>
             </form>
         </>
            

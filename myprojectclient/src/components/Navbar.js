@@ -63,7 +63,7 @@ class Navbar extends Component {
             }    
         } else {
             return(
-                <div className="container">
+                <div className="container container-home">
                     <div className="row">
                         <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
                         <div className="col-md-4">

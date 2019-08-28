@@ -1,3 +1,10 @@
+/* .container-home {
+    position: fixed;
+    background-color: aquamarine;
+    opacity: .5;
+    z-index: 10;
+} */
+
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;

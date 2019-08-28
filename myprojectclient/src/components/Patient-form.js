@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import Services  from '../services/professional.services'
 
-import {Link} from 'react-router-dom'
-
-
 
 class SignupPatient extends Component {
 
@@ -32,23 +29,29 @@ class SignupPatient extends Component {
         const { username, lastName, email, password, role, professional, treatment, imageUrl } = this.state
 
         this.service.signupPatient( username, lastName, email, password, role, professional, treatment, imageUrl )  //.signupPatient lo coge del Services import
-            .then(theNewUser => {
-                console.log(theNewUser)
+           
+            .then( x => {
+                this.props.closeModal()
+                this.props.updatePatientList()
+
+
+                // console.log(theNewUser)
+
 
                  // LIMPIA! Now we set a new state to have empty fields  
-                 this.setState({
-                    username: '',
-                    lastName:'',
-                    email: '',
-                    password: '',
-                    role: '',
-                    professional: '',
-                    treatment: '',
-                    imageUrl: ''
-                })
-                this.props.history.push('/professional/area')
-               
-           
+                //  this.setState({
+                //     username: '',
+                //     lastName:'',
+                //     email: '',
+                //     password: '',
+                //     role: '',
+                //     professional: '',
+                //     treatment: '',
+                //     imageUrl: ''
+                // })
+                // this.props.closeModal()
+                // this.props.redirectRoute()
+                // this.props.updateCoasterList()   // this.props.history.push('/')
             })
             .catch(err => console.log({err}))
     }
@@ -108,7 +111,7 @@ class SignupPatient extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-info btn-sm">Crear</button>
-                <Link to="/professional/area" className="btn btn-info btn-sm">Cerrar</Link>
+                <button className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</button>
                 
             </form>
         </>
