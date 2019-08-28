@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Services  from '../services/auth.services'
 
 import {Link} from 'react-router-dom'
-import { Form, Col } from 'react-bootstrap'
+import { Form, Col, Button } from 'react-bootstrap'
 
 import '../styles/profesional-form.css'
 
@@ -71,7 +71,7 @@ class SignupProf extends Component {
 
     render() {
         return (
-            <>
+            <div className="background-form">
             <h4>Registro de Profesional</h4>
 
             <hr></hr>
@@ -80,103 +80,63 @@ class SignupProf extends Component {
 
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridUsername">
-                        <Form.Label>Nombre</Form.Label>
+                        <Form.Label className="title">Nombre</Form.Label>
                         <Form.Control name="username" type="text" className="form-control" id="input-username" onChange={this.handleChangeInput} placeholder="Nombre" />
                     </Form.Group>
-                    <Form.Group as={Col} controlId="formGridLastName">
-                        <Form.Label className="lastname">Apellido</Form.Label>
-                        <Form.Control name="lastName" type="text" className="form-control lastname" id="input-last-name" onChange={this.handleChangeInput} placeholder="Apellido" />
+                    <Form.Group as={Col} controlId="formGridLasProfessional">
+                        <Form.Label className="title">Profesión</Form.Label>
+                        <Form.Control name="job" type="text" className="form-control" id="input-job" onChange={this.handleChangeInput} placeholder="Psicólogo/a" />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                    <Form.Group as={Col} controlId="formGridLasProfessional">
-                        <Form.Label>Profesión</Form.Label>
-                        <Form.Control name="job" type="text" className="form-control" id="input-job" onChange={this.handleChangeInput} placeholder="Psicólogo/a" />
+                    <Form.Group as={Col} controlId="formGridLastName">
+                        <Form.Label className="lastname title">Apellido</Form.Label>
+                        <Form.Control name="lastName" type="text" className="form-control lastname" id="input-last-name" onChange={this.handleChangeInput} placeholder="Apellido" />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridLasSpeciality">
-                        <Form.Label>Especialidad</Form.Label>
+                        <Form.Label className="title">Especialidad</Form.Label>
                         <Form.Control name="speciality" type="text" className="form-control" id="input-speciality" onChange={this.handleChangeInput} placeholder="Neurología" />
                     </Form.Group>
+                </Form.Row>
+
+                <Form.Row>
                     <Form.Group as={Col} controlId="formGridLasNumber">
-                        <Form.Label>Número de Colegiado</Form.Label>
+                        <Form.Label className="title">Número de Colegiado/a</Form.Label>
                         <Form.Control name="numberCollegiate" type="number" className="form-control" id="input-collegiate" onChange={this.handleChangeInput} placeholder="12345" />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridRooms">
-                        <Form.Label>Consulta</Form.Label>
+                        <Form.Label className="title">Consulta</Form.Label>
                         <Form.Control name="examinationRooms" type="text" className="form-control" id="input-rooms" onChange={this.handleChangeInput} placeholder="Neurosalud" />
                     </Form.Group>
                 </Form.Row>
 
+
                 <Form.Group as={Col} controlId="formGridImage" className="image">
-                    <Form.Label className="label-image">Imagen</Form.Label>
-                    <Form.Control name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload} />
+                    <Form.Label className="label-image title">Imagen</Form.Label>
+                    <Form.Control name="imageUrl" type="file" className="form-control box-image" id="input-img" onChange={this.handleFileUpload} />
                 </Form.Group>
 
+                <hr></hr>
+
                 <Form.Group controlId="formGridEmail" className="center">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="title">Email</Form.Label>
                     <Form.Control name="email" type="email" className="form-control" id="input-email" onChange={this.handleChangeInput} placeholder="hola@thinkapp.com" />
                 </Form.Group>
         
                 <Form.Group controlId="formGridPassword" className="center">
-                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Label className="title">Contraseña</Form.Label>
                     <Form.Control name="password" type="password" className="form-control" id="input-password" onChange={this.handleChangeInput} placeholder="Password" />
                 </Form.Group>
 
-                <button type="submit" className="btn btn-info btn-sm">Crear</button>
-                <Link to="/" className="btn btn-info btn-sm">Cerrar</Link>
-         
+                <div className='btn-click'>
+                    <Button type="submit" variant="outline-info" size="lg" className="btn">Crear</Button>
+                    <Link to="/" className="btn btn-outline-info btn-lg">Cerrar</Link>
+                </div>
             </form>
-        </>
+        </div>
            
            )
         }
     }
     export default SignupProf
-    
-                     {/* <div className="form-group">
-                        <label htmlFor="input-username">Nombre</label>
-                         <input name="username" type="text" className="form-control" id="input-username" onChange={this.handleChangeInput} />
-                     </div>
-    
-                     <div className="form-group">
-                         <label htmlFor="input-lastname">Apellido</label>
-                         <input name="lastName" type="text" className="form-control" id="input-lastname" onChange={this.handleChangeInput} />               </div>
-                   
-                    <div className="form-group">
-                        <label htmlFor="input-img">Imagen</label>
-                        <input name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload}  />
-                    </div> 
-    
-                    <div className="form-group">
-                        <label htmlFor="input-email">Email</label>
-                        <input name="email" type="email" className="form-control" id="input-email" onChange={this.handleChangeInput} />
-                    </div>
-    
-                    <div className="form-group">
-                        <label htmlFor="input-password">Contraseña</label>
-                        <input name="password" type="password" className="form-control" id="input-password" onChange={this.handleChangeInput} />
-                    </div>
-    
-                    <div className="form-group">
-                        <label htmlFor="input-job">Profesión</label>
-                        <input name="job" type="text" className="form-control" id="input-job" onChange={this.handleChangeInput} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="input-speciality">Especialidad</label>
-                        <input name="speciality" type="text" className="form-control" id="input-speciality" onChange={this.handleChangeInput} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="input-collegiate">Número de Colegiado/a</label>
-                        <input name="numberCollegiate" type="number" className="form-control" id="input-collegiate" onChange={this.handleChangeInput} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="input-rooms">Consulta</label>
-                        <input name="examinationRooms" type="text" className="form-control" id="input-rooms" onChange={this.handleChangeInput} />
-                    </div>
-    
-                    <button type="submit" className="btn btn-info btn-sm">Crear</button>
-                    <Link to="/" className="btn btn-info btn-sm">Cerrar</Link>
-                    // 
-    
-                    {/* <button className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</button> */}

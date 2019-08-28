@@ -31,8 +31,16 @@ class PatientList extends Component {
         
         return (
             <>
+
+                <div className="container">
+                    <h3>Listado de Pacientes</h3>
+                    <div className="row">
+                        {this.state.patients && this.state.patients.map(patient => <PatientCard key={patient._id} {...patient} />)}
+                    </div>
                 <article>
-                    <p>Añadir nuevo paciente</p>
+
+                    <hr></hr>
+                    <p className="add-patient-p">Añadir nuevo paciente</p>
                     <Modal show={this.state.showModal} onHide={this.handleModalClose}>
                        
                         <Modal.Body>
@@ -40,15 +48,8 @@ class PatientList extends Component {
                         </Modal.Body>
 
                     </Modal>
-                    <button className="btn btn-info btn-big" onClick={this.handleModalOpen}>Añadir</button>
+                    <button className="btn btn-info btn-big btn-add-patient" onClick={this.handleModalOpen}>Añadir</button>
                 </article>
-                    <hr></hr>
-
-                <div className="container">
-                    <h3>Listado de Pacientes</h3>
-                    <div className="row">
-                        {this.state.patients && this.state.patients.map(patient => <PatientCard key={patient._id} {...patient} />)}
-                    </div>
                 </div>
             </>
         )

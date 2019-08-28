@@ -20,7 +20,7 @@ class RegisterDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Detalles del Registro</h1>
+                <h2>Detalles del Registro</h2>
                 <hr></hr>
                 <article>
                     <div className="row justify-content-center">

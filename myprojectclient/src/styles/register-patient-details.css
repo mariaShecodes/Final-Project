@@ -1,29 +1,16 @@
-.patient-card {
+.autoregisters-details {
     border: .4px solid rgba(116, 116, 116, 0.06);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgb(232, 231, 231);
     background-color: rgb(250, 250, 250);
-    width: 25%;
+    width: 100%;
     margin-top: 1.2em;
     margin-right: 2.5%;
     margin-bottom: 20px;
     margin-left: 4%;
 }
-
-.photo-patient {
-    width: 60%;
-    margin-left: 20%;
+.photo-context {
+    width: 80%;
     margin-top: 10%;
-    border-radius: 50%;
-}
-h2 {
-    text-align: center;
-    margin-top: .5em;
-}
-p {
-    text-align: center;
-}
-.btn-details {
-    margin-left: 35%;
-    margin-bottom: 1.2em;
+    border-radius: 5%;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
-import '../styles/home.css'
+// import '../styles/home.css'
 
 class Home extends Component {
     
@@ -52,18 +52,12 @@ class Home extends Component {
                 </section>
 
                 <section className="section3">
+                
                 </section>
 
                 <footer className="footer">
                     <div className="info-business">
                         <h3>ThinkApp</h3>
-                
-                        {/* <h5>Follow Us</h5>
-                        <ul>
-                            <li><a className="link-footer" href="#" target="_blank">Twitter</a></li>
-                            <li><a className="link-footer" href="#" target="_blank">Facebook</a></li>
-                            <li><a className="link-footer" href="#" target="_blank">Instagram</a></li>
-                        </ul> */}
                         <p className="address">Dirección</p>
                         <address className="address address-complet">ThinkApp, Paseo de la Chopera, 14, 28045 Madrid <br/>+33 (0) 619 193 088 </address>
                     </div>

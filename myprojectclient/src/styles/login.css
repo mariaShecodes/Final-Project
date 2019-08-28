@@ -1,16 +1,11 @@
-.form-control {
-  width: 75%;
-}
-.login {
+.title {
   margin-left: 20%;
-}
-.login h3 {
-  text-align: center;
 }
 .label-login {
   margin-top: 1.5em;
 }
 .button-session {
-  margin-top: .9em;
-  margin-left: 5em;
+  width: 33%;
+  margin-left: 33%;
+
 }

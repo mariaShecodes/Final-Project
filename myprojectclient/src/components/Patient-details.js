@@ -4,6 +4,7 @@ import Services from '../services/professional.services'
 
 import RegistersPatient from './Register-patient-details'
 
+import '../styles/patient-details.css'
 
 class PatientDetails extends Component {
 
@@ -31,29 +32,31 @@ class PatientDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Detalles del Paciente</h1>
+                <h2>Detalles del Paciente</h2>
                 <hr></hr>
                 <article>
-                    <div className="row justify-content-center">
-                        <div className="col-md-6">
-                            <h2> {this.state.patient.username} {this.state.patient.lastName}</h2>
-                            <div className="col-md-4">
-                                <img src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
-                            </div>
-                            <p>email: {this.state.patient.email}</p>
-                            <h3>Tratamiento: {this.state.patient.treatment}</h3>
-                            <p><strong>Descripción:</strong> {this.state.patient.description}</p>
-                            <hr></hr>
-                            <p><strong>Registros</strong></p>
-
-                            <div className="row">
-                                {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
-                            </div>
-                            
-                        
-                           
-                            <Link className="btn btn-big btn-info" to="/professional/area">Volver</Link>
+                    <div className="row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-3">
+                            <h2 className="name-patient"> {this.state.patient.username} {this.state.patient.lastName}</h2>
+                            <p className="email">email: {this.state.patient.email}</p>
+                            <p className="info-patient"><strong>Fecha de nacimiento:</strong> </p>
+                            <p className="info-patient"><strong>Tratamiento:</strong> {this.state.patient.treatment}</p>
+                            <p className="info-patient"><strong>Descripción:</strong> {this.state.patient.description}</p>
                         </div>
+                        <div className="col-md-6">
+                            <img className="image-patient" src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                        </div>
+                    </div>
+
+                    <hr></hr>
+                    <h4>Autorregistros</h4>
+
+                    <div className="row">
+                        {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
+                    </div>
+                    <div className="btn-volver">
+                        <Link className="btn btn-big btn-info" to="/professional/area">Volver</Link>                       
                     </div>
                 </article>
             </div>

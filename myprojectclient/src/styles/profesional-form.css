@@ -1,30 +1,33 @@
+.background-form {
+    background-image: url('../components/image/image04.jpg');
+    background-size: cover;
+    width: 100vmax;
+    height: 760px;
+}
+
 h4 {
     text-align: center;
+    padding-top: 1em;
 }
 .form-professional {
-   width: 70%;
-   margin-left: 20%;
-   margin-top: 2em;
+    width: 60%;
+    margin: 0 auto;
 }
 .form-control {
-    width: 60%;
+    width: 70%;
+    margin-left: 15%;
 }
-.btn {
-    margin-right: 2em;
+.title {
+    margin-left: 15%;
 }
-.lastname {
-    margin-left: 27%;
+
+.btn-click {
+    display: flex;
+    justify-content: center;
 }
-.image {
-    display: flex; 
-    justify-content: flex-start;
-    margin-left: 8em;
-    margin-top: 1em;
+Button {
+    margin-right: 2%;
 }
-.label-image {
-    padding-top: .5em;
-    margin-right: 1.1em;
-}
-.center {
-    margin-left: 9em;
+Link {
+    margin-left: 2%;
 }

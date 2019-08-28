@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Services  from '../services/professional.services'
 
+import { Link } from 'react-router-dom'
+
+import '../styles/patient-form.css'
+
 
 class SignupPatient extends Component {
 
@@ -33,25 +37,6 @@ class SignupPatient extends Component {
             .then( x => {
                 this.props.closeModal()
                 this.props.updatePatientList()
-
-
-                // console.log(theNewUser)
-
-
-                 // LIMPIA! Now we set a new state to have empty fields  
-                //  this.setState({
-                //     username: '',
-                //     lastName:'',
-                //     email: '',
-                //     password: '',
-                //     role: '',
-                //     professional: '',
-                //     treatment: '',
-                //     imageUrl: ''
-                // })
-                // this.props.closeModal()
-                // this.props.redirectRoute()
-                // this.props.updateCoasterList()   // this.props.history.push('/')
             })
             .catch(err => console.log({err}))
     }
@@ -78,23 +63,23 @@ class SignupPatient extends Component {
 
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="input-name">Nombre</label>
+                    <label htmlFor="input-name text">Nombre</label>
                     <input name="username" type="text" className="form-control" id="input-username" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="input-lastname">Apellido</label>
+                    <label htmlFor="input-lastname text">Apellido</label>
                     <input name="lastName" type="text" className="form-control" id="input-lastname" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="input-email">Email</label>
+                    <label htmlFor="input-email text">Email</label>
                     <input name="email" type="email" className="form-control" id="input-email" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="input-password">Contraseña</label>
+                    <label htmlFor="input-password text">Contraseña</label>
                     <input name="password" type="password" className="form-control" id="input-password" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <label>Tratamiento</label>
+                    <p className="text">Tratamiento</p>
                     <select name="treatment" id="input-treatment" selected={this.state.treatment} onChange={this.handleChangeInput} >
                         <option disabled selected value>Select an option</option>
                         <option value="Depresión">Depresión</option>
@@ -106,12 +91,14 @@ class SignupPatient extends Component {
                     </select> 
                 </div>
                 <div className="form-group">
-                        <label htmlFor="input-img">Imagen</label>
+                        <label htmlFor="input-img text">Imagen</label>
                         <input name="imageUrl" type="file" className="form-control" id="input-img" onChange={this.handleFileUpload} />
                 </div>
 
-                <button type="submit" className="btn btn-info btn-sm">Crear</button>
-                <button className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</button>
+                <div className="btn-options">
+                    <button type="submit" className="btn btn-info btn-sm">Crear</button>
+                    <Link to="/professional/area" className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</Link>
+                </div>
                 
             </form>
         </>

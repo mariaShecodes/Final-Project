@@ -13,7 +13,7 @@ const PatientCard = ({ username, lastName, imageUrl,email, treatment, _id }) => 
             <p>{email}</p>
             <p>Tratamiento: {treatment}</p>
             <hr></hr>
-            <Link className="btn btn-sm btn-info btn-details" to={`/professional/details-patient/${_id}`}>Ver detalles</Link>  
+            <Link className="btn btn-sm btn-outline-info btn-details" to={`/professional/details-patient/${_id}`}>Ver detalles</Link>  
         </div>
     )
 }

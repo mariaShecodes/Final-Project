@@ -25,8 +25,8 @@ class Navbar extends Component {
         if(this.props.userInSession) {
             if(this.props.userRole === 'PROFESSIONAL') {
                 return (
-                    <div>
-                        <div className="container">
+                    <div className="navbar-professional">
+                        <div className="container ">
                             <div className="row">
                                 <Link to="/" className="col-md-8 font-weight-light logo logo-link logo-session">ThinkApp</Link>
                                 <div className="col-md-4">

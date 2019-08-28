@@ -108,6 +108,7 @@ class App extends Component {
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />
           <ProtectedRoute path="/patient/area" user={this.state.loggedInUser} component={PatientArea} />
           {/* <Route path="/auth/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}
+          <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} />
         </Switch>
 
         <Modal show={this.state.show} onHide={this.handleClose} className="bsClass">
@@ -117,16 +118,7 @@ class App extends Component {
           <Modal.Body><Login setUser={this.setTheUser} checkRedirect={this.checkRedirect} /></Modal.Body>
         </Modal>
 
-          {/* <Route path="/auth/signup" exact render={match => <ProfessionalSignup {...match} setUser={this.setTheUser} />} /> */}
        
-        {/* MODAL SIGNUP */}
-        <Modal show={this.state.showModalSignup} onHide={this.handleModalClose}>
-
-          <Modal.Body>
-              <ProfessionalSignup setUser={this.setTheUser}  redirectRoute={this.redirectRoute}/>
-          </Modal.Body>
-
-        </Modal>
       </>
     )
   }

@@ -1,0 +1,10 @@
+label {
+    margin-left: 15%;
+}
+select {
+    margin-left: 15%;
+}
+.btn-options {
+    display: flex;
+    justify-content: center;
+}

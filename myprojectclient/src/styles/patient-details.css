@@ -1,0 +1,20 @@
+.name-patient {
+    padding-top: 2em;
+}
+.email {
+    text-align: center;
+    margin-bottom: 5em;
+}
+.info-patient {
+    text-align: left;
+}
+.image-patient {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 5%;
+}
+.btn-volver {
+    text-align: right;
+}
+
