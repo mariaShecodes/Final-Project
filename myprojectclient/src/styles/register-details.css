@@ -1,9 +1,13 @@
+.details-autoregisters-title {
+    margin-top: .5em;
+
+}
 .image-context {
-    width: 100%;
+    width: 120%;
     border-radius: 5%;
 }
 .first-details-register {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 .title-register-detail {
     margin-bottom: 1.5em;

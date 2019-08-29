@@ -4,31 +4,37 @@
     box-shadow: 5px 5px 5px rgb(235, 235, 235);
     background-color: rgb(250, 250, 250);
     width: 25%;
-    margin-top: 1.2em;
+    margin-top: 1.5em;
     margin-right: 2.5%;
     margin-bottom: 20px;
     margin-left: 4%;
 
     display: inline-block;
-    transition-duration: 0.3s;
+    transition-duration: 0.4s;
     transition-property: transform;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transform: translateZ(0);
 }
 
 .photo-patient {
-    width: 60%;
-    margin-left: 20%;
+    width: 50%;
+    margin-left: 25%;
     margin-top: 10%;
     border-radius: 50%;
 }
 .username-patient {
     text-align: center;
-    margin-top: .5em;
+    font-size: 22px;
+    margin-top: 1em;
 }
 .informacion {
     text-align: center;
+    font-size: 12px;
 }
+.information-two {
+    margin-top: -10px;
+}
+
 .btn-details {
     margin-left: 35%;
     margin-bottom: 1.2em;

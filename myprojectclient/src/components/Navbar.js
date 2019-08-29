@@ -51,13 +51,15 @@ class Navbar extends Component {
                             <div className="row">
                                 <Link to="/" className="col-md-8 font-weight-light logo logo-link logo-session">ThinkApp</Link>
                                 <div className="col-md-4">
-                                    <Link to="/patient/area" onClick={this.logout} className="link-professional link">Area Personal</Link>
-                                    <Link to='/patient/new-register' className="link-professional link" >Añadir Autorregistro</Link> 
-                                    <Link to="/" onClick={this.props.logout} className="link-professional link">Logout</Link>
-                                </div>
-                                <div className="row identity">
-                                    <div className="saludo">Bienvenido/a {saludo}</div>
-                                    <img src={image} alt="Image user" className="image-user"/>
+                                    <div className="row">
+                                        <Link to="/patient/area" onClick={this.logout} className="link-professional link">Area Personal</Link>
+                                        <Link to='/patient/new-register' className="link-professional link" >Añadir Autorregistro</Link> 
+                                        <Link to="/" onClick={this.props.logout} className="link-professional link">Logout</Link>
+                                    </div>
+                                    <div className="row identity">
+                                        <div className="saludo">Bienvenido/a {saludo}</div>
+                                        <img src={image} alt="Image user" className="image-user"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

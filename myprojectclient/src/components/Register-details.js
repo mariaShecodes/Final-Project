@@ -22,7 +22,7 @@ class RegisterDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h2>Detalles del Registro</h2>
+                <h2 className="details-autoregisters-title">Detalles del Autorregistro</h2>
                 <hr></hr>
                 <article>
                     <div className="row justify-content-center">
@@ -30,8 +30,8 @@ class RegisterDetails extends Component {
                             <div className="row first-details-register">
                                 <div className="col-md-6">
                                     <h2 className="title-register-detail">{this.state.register.title}</h2>
-                                    <p>{this.state.register.dateCreated}</p>
-                                    <p><strong>Contexto: {this.state.register.context} </strong></p>
+                                    <p><strong>Fecha: </strong>{this.state.register.dateCreated && this.state.register.dateCreated.slice(0,10)}</p>
+                                    <p><strong>Contexto:</strong> {this.state.register.context} </p>
                                 </div>
                                 <div className="col-md-3">
                                     <img className="image-context" src={this.state.register.imageUrl} alt={this.state.register.title}></img>
@@ -39,10 +39,14 @@ class RegisterDetails extends Component {
                             </div>
 
                             <hr></hr>
-                            <p><strong>¿Qué pensé?</strong> {this.state.register.think} </p>
-                            <p><strong>¿Cómo me sentí?</strong> {this.state.register.feel} </p>
-                            <p><strong>¿Qué hice?</strong> {this.state.register.doing} </p>
-                            <p><strong>¿Qué pasó después?</strong> {this.state.register.happen} </p>
+                            <p><strong>¿Qué pensé?</strong></p>
+                            <p> {this.state.register.think} </p>
+                            <p><strong>¿Cómo me sentí?</strong>  </p>
+                            <p>{this.state.register.feel}</p>
+                            <p><strong>¿Qué hice?</strong></p>
+                            <p>{this.state.register.doing} </p>
+                            <p><strong>¿Qué pasó después?</strong></p>
+                            <p>{this.state.register.happen}</p>
                             <Link className="btn btn-big btn-info boton-volver-register" to="/patient/area">Volver</Link>
                         </div>
                         
