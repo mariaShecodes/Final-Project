@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Services from '../services/professional.services'
 
 import RegistersPatient from './Register-patient-details'
+import { Chat } from './chat/Chat'
 
 import '../styles/patient-details.css'
 
@@ -39,6 +40,7 @@ class PatientDetails extends Component {
                     </div>
                 </div>
                 <hr></hr>
+                <Chat />
                 <article>
                     <div className="row">
                         <div className="col-md-3"></div>
