@@ -13,6 +13,7 @@ a {
 
 .title-window {
   text-align: center;
+  margin-top: .6em;
 
 }
 .btn-add-patient {
@@ -21,5 +22,8 @@ a {
   margin-bottom: 1.1em;
 }
 .add-patient-p {
-  margin-bottom: .2em;
+  margin-left: 43.5%;
+}
+.add-autorregister-p {
+  margin-left: 42%;
 }

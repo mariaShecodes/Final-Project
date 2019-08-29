@@ -59,14 +59,14 @@ class Login extends Component {
             <div className="login">
                 <form onSubmit={this.handleFormSubmit}>
 
-                <Form.Label className="label-login title">Usuario</Form.Label>
+                <Form.Label className="label-login title-login">Usuario</Form.Label>
                     <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} placeholder="Nombre de Usuario" />
          
-                <Form.Label className="label-login title">Contraseña</Form.Label>
+                <Form.Label className="label-login title-login">Contraseña</Form.Label>
                     <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" />
                
                 <Form.Group controlId="formBasicCheckbox" className="label-login">
-                    <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" className="title"/>
+                    <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" className="title-login professional-check"/>
                 </Form.Group>
                
                 <Button variant="info" type="submit" className="button-session">Iniciar sesión</Button>

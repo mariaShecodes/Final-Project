@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import Services  from '../services/patient.services'
 
+import { Link } from 'react-router-dom'
+import { Form, Col } from 'react-bootstrap'
+
+import '../styles/patient-form.css'
+
 
 class NewRegister extends Component {
 
@@ -70,15 +75,16 @@ class NewRegister extends Component {
             <hr></hr>
 
             <form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="input-title">
+                    <Form.Label className="title input-linea">Título</Form.Label>
+                    <Form.Control name="title" type="text" className="form-control" id="input-title" onChange={this.handleChangeInput} placeholder="Título del autorregistro" />
+                </Form.Group>
 
-                <div className="form-group">
-                    <label htmlFor="input-title">Título</label>
-                    <input name="title" type="text" className="form-control" id="input-title" onChange={this.handleChangeInput} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="input-date">Fecha</label>
-                    <input name="dateCreated" type="date" className="form-control" id="input-date" onChange={this.handleChangeInput} />
-                </div>
+                <Form.Group  controlId="input-date">
+                    <Form.Label className="title input-linea">Fecha</Form.Label>
+                    <Form.Control name="dateCreated" type="date" className="form-control" id="input-date" onChange={this.handleChangeInput}/>
+                </Form.Group>
+   
                 <div className="form-group">
                     <label htmlFor="input-context">¿Dónde estoy?</label>
                     <input name="context" type="text" className="form-control" id="input-context" onChange={this.handleChangeInput} />
@@ -93,6 +99,7 @@ class NewRegister extends Component {
                 </div>
                 <div className="form-group">
                      <label>¿Cómo me siento? </label>
+                     <br></br>
                      <select name="feel" id="input-feel" selected={this.state.feel} onChange={this.handleChangeInput} >
                          <option disabled selected value>Select an option</option>
                          <option value="Feliz">Feliz</option>
@@ -115,8 +122,10 @@ class NewRegister extends Component {
                     <textarea name="happen" type="text-area" className="form-control" id="input-happen" onChange={this.handleChangeInput} />
                 </div>
 
-                <button type="submit" className="btn btn-info btn-sm">Crear</button>
-                <button className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</button>
+                <div className="btn-options">
+                    <button type="submit" className="btn btn-info btn-sm">Crear</button>
+                    <Link  to="/patient/area" className="btn btn-info btn-sm" onClick={this.props.closeModal}>Cerrar</Link>
+                </div>
             </form>
         </>
            

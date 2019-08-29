@@ -1,4 +1,4 @@
-.patient-card {
+.register-card {
     border: .4px solid rgba(116, 116, 116, 0.06);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgb(232, 231, 231);
@@ -9,21 +9,15 @@
     margin-bottom: 20px;
     margin-left: 4%;
 }
-
-.photo-patient {
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 10%;
-    border-radius: 50%;
-}
-.username-patient {
+.title-register {
     text-align: center;
     margin-top: .5em;
 }
-.informacion {
-    text-align: center;
+.p-info-register {
+    margin-left: 10%;
 }
-.btn-details {
+.boton-details {
+    width: 30%;
     margin-left: 35%;
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
 }

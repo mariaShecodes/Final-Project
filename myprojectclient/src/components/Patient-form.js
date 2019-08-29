@@ -79,7 +79,7 @@ class SignupPatient extends Component {
                     <input name="password" type="password" className="form-control" id="input-password" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
-                    <p className="text">Tratamiento</p>
+                    <p className="text p-tto">Tratamiento</p>
                     <select name="treatment" id="input-treatment" selected={this.state.treatment} onChange={this.handleChangeInput} >
                         <option disabled selected value>Select an option</option>
                         <option value="Depresión">Depresión</option>

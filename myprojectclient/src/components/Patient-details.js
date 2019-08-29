@@ -32,7 +32,12 @@ class PatientDetails extends Component {
     render() {
         return (
             <div className="container">
-                <h2>Detalles del Paciente</h2>
+                <div className="encabezado">
+                    <h2 className="details-patients-title">Detalles del Paciente</h2>
+                    <div className="btn-volver">
+                        <Link className="link-simple link" to="/professional/area">Volver</Link>                       
+                    </div>
+                </div>
                 <hr></hr>
                 <article>
                     <div className="row">
@@ -55,10 +60,8 @@ class PatientDetails extends Component {
                     <div className="row autoregisterText">
                         {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
                     </div>
-                    <div className="btn-volver">
-                        <Link className="btn btn-big btn-info" to="/professional/area">Volver</Link>                       
-                    </div>
                 </article>
+                <Link className="btn btn-big btn-info boton-volver-patient" to="/professional/area">Volver</Link>
             </div>
         )
     }

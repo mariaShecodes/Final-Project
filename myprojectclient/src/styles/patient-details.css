@@ -17,3 +17,10 @@
 .btn-volver {
     text-align: right;
 }
+.details-patients-title {
+    padding-top:1.1em;
+}
+.boton-volver-patient {
+    margin-left: 47%;
+    margin-bottom: 1em;
+}

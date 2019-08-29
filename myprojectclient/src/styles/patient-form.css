@@ -8,3 +8,7 @@ select {
     display: flex;
     justify-content: center;
 }
+.p-tto {
+    margin-left: 15%;
+}
+

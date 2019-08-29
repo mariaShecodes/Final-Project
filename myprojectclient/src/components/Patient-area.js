@@ -12,7 +12,7 @@ class PatientArea extends Component {
     render() {
         return (
             <div>
-                <h1>Estás en tu area privada de paciente</h1>
+                <h1 className="title-window">Area Personal</h1>
                 <RegisterList />
             </div>
         )

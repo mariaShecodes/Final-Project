@@ -10,14 +10,16 @@ const RegistersPatientDetails = ({ title, dateCreated, context, imageUrl, think,
         <div>
             <div className="autoregisters-details">
                 <article>
-                    <h2>{title}</h2>
-                    <p><strong>Fecha:</strong> {dateCreated}</p>
-                    <p><strong>¿Dónde se encontraba?</strong> {context}</p>
-                    <p>Imagen de la ubicación: <img src={imageUrl} alt="Imagen del contexto" className="photo-context"></img></p>
-                    <p><strong>¿Qué pensaba?</strong> {think}</p>
-                    <p><strong>¿Cómo se sentía?</strong> {feel}</p>
-                    <p><strong>¿Qué hizo?</strong> {doing}</p>
-                    <p><strong>¿Qué ocurrió después?</strong> {happen}</p> 
+                    <p className="title-autorregister">{title}</p>
+                    <hr></hr>
+                    <img src={imageUrl} alt="Imagen del contexto" className="photo-context"></img>
+                    <p className="title-context-image">Imagen de la ubicación</p>
+                    <p className="p-info"><strong>Fecha:</strong> {dateCreated}</p>
+                    <p className="p-info"><strong>¿Dónde se encontraba?</strong> {context}</p>
+                    <p className="p-info"><strong>¿Qué pensaba?</strong> {think}</p>
+                    <p className="p-info"><strong>¿Cómo se sentía?</strong> {feel}</p>
+                    <p className="p-info"><strong>¿Qué hizo?</strong> {doing}</p>
+                    <p className="p-info"><strong>¿Qué ocurrió después?</strong> {happen}</p> 
                 </article>
             </div>
         </div>

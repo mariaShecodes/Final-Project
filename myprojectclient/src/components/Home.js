@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
-import '../styles/home.css'
+// import '../styles/home.css'
 
 class Home extends Component {
     

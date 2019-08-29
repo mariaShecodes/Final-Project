@@ -37,8 +37,8 @@ class PatientList extends Component {
                     <div className="row">
                         {this.state.patients && this.state.patients.map(patient => <PatientCard key={patient._id} {...patient} />)}
                     </div>
+                    
                 <article>
-
                     <hr></hr>
                     <p className="add-patient-p">Añadir nuevo paciente</p>
                     <Modal show={this.state.showModal} onHide={this.handleModalClose}>

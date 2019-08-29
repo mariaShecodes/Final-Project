@@ -32,25 +32,25 @@ class RegisterList extends Component {
 
         return (
             <>
+               <div className="container">
+                    <h3>Listado de Autorregistros</h3>
+                    <div className="row">
+                        { this.state.registers.map(register => <RegisterCard key={register._id} {...register} />)}
+                    </div>
+
                 <article>
-                    <p>Añadir nuevo registro</p>
+                    <hr></hr>
+                    <p className="add-autorregister-p">Añadir nuevo autorregistro</p>
                     <Modal show={this.state.showModal} onHide={this.handleModalClose}>
+                       
                         <Modal.Body>
                             <RegisterForm closeModal={this.handleModalClose} updateRegisterList={this.updateList} />
                         </Modal.Body>
+
                     </Modal>
-                    <button className="btn btn-info btn-big" onClick={this.handleModalOpen}>Añadir</button>
+                    <button className="btn btn-info btn-big btn-add-patient" onClick={this.handleModalOpen}>Añadir</button>
                 </article>
-                <hr></hr>
-                    
-                <div className="container">
-                    <h1>Listado de Registros</h1>
-                    <div className="row">
-  
-                        { this.state.registers.map(register => <RegisterCard key={register._id} {...register} />)}
-                    
-                    </div>
-                </div>
+                </div>     
             </>
         )
     }
