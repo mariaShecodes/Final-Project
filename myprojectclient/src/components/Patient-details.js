@@ -52,7 +52,7 @@ class PatientDetails extends Component {
                     <hr></hr>
                     <h4>Autorregistros</h4>
 
-                    <div className="row">
+                    <div className="row autoregisterText">
                         {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
                     </div>
                     <div className="btn-volver">

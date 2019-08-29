@@ -67,8 +67,7 @@ class Navbar extends Component {
                     <div className="row">
                         <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
                         <div className="col-md-4">
-                            <Button className="link" variant="link" size="lg" onClick={() => this.props.handleShow()}>Login</Button>
-                            {/* <Link to="/auth/login" className="link">Login</Link> */}
+                            <Link className="link-simple link" onClick={() => this.props.handleShow()}>Login</Link>
                             <Link to="/auth/signup" className="link-simple link">Signup</Link>
                         </div>
                     </div>
