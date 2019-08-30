@@ -55,7 +55,7 @@ router.get('/getOnePatient/:id', (req, res) => {
 
 // SIGNUP PATIENT
 router.post('/new-patient', (req, res, next) => {
-    const { username, lastName, email, password, role, professional, treatment, imageUrl } = req.body
+    const { username, lastName, email, password, birthDate, description, role, professional, treatment, imageUrl } = req.body
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -89,6 +89,8 @@ router.post('/new-patient', (req, res, next) => {
             lastName: lastName,
             email: email,
             password: hashPass,
+            birthDate: birthDate, 
+            description: description,
             role: role,
             professional: professional,
             treatment: treatment,

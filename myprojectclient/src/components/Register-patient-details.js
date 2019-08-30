@@ -8,7 +8,7 @@ const RegistersPatientDetails = ({ title, dateCreated, context, imageUrl, think,
 
     return (
         <div>
-            <div className="container autoregisters-details">
+            <div className="autoregisters-details">
                 <div className="row">
                     <div className="col-md-8">
                         <p className="title-autorregister">{title}</p>

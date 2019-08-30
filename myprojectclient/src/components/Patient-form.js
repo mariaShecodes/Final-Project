@@ -15,6 +15,8 @@ class SignupPatient extends Component {
             lastName:'',
             email: '',
             password: '',
+            birthDate: '',
+            description: '',
             role: "PATIENT",
             professional: JSON.parse(localStorage.getItem('userID')),  // Obtenemos el id del profesional a través de local storage
             treatment: '',
@@ -30,9 +32,9 @@ class SignupPatient extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { username, lastName, email, password, role, professional, treatment, imageUrl } = this.state
+        const { username, lastName, email, password, birthDate, description, role, professional, treatment, imageUrl } = this.state
 
-        this.service.signupPatient( username, lastName, email, password, role, professional, treatment, imageUrl )  //.signupPatient lo coge del Services import
+        this.service.signupPatient( username, lastName, email, password, birthDate, description, role, professional, treatment, imageUrl )  //.signupPatient lo coge del Services import
            
             .then( x => {
                 this.props.closeModal()
@@ -71,6 +73,10 @@ class SignupPatient extends Component {
                     <input name="lastName" type="text" className="form-control" id="input-lastname" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
+                    <label htmlFor="input-birth text">Fecha de Nacimiento</label>
+                    <input name="birthDate" type="text" className="form-control" id="input-birth" onChange={this.handleChangeInput} />
+                </div>
+                <div className="form-group">
                     <label htmlFor="input-email text">Email</label>
                     <input name="email" type="email" className="form-control" id="input-email" onChange={this.handleChangeInput} />
                 </div>
@@ -89,6 +95,10 @@ class SignupPatient extends Component {
                         <option value="Trast. de la conducta alimentaria" >Trast. de la conducta alimentaria</option>
                         <option value="Trast. del sueño">Trats. del sueño</option>
                     </select> 
+                </div>
+                <div className="form-group">
+                    <label htmlFor="input-description text">Descripción</label>
+                    <textarea name="description" type="text-area" className="form-control" id="input-description" onChange={this.handleChangeInput} />
                 </div>
                 <div className="form-group">
                         <label htmlFor="input-img text">Imagen</label>

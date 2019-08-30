@@ -2,9 +2,6 @@
     padding-top: .5em;
     padding-left: 2em;
 }
-.enlace-volver-sup {
-    padding-top: ;
-}
 .name-patient {
     padding-top: 2em;
     text-align: left;
@@ -22,11 +19,12 @@
     margin-top: 10%;
     border-radius: 5%;
 }
-
 .boton-volver-patient {
     margin-left: 47%;
     margin-bottom: 1em;
 }
 .chat {
-    padding-top: 13em;
+    position: absolute;
+    bottom: 0;
 }
+

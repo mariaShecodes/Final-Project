@@ -10,8 +10,8 @@ export default class Services {
         })
     }
 
-    signupPatient = (username, lastName, email, password, role, professional, treatment, imageUrl ) => {
-        return this.service.post('/new-patient', { username, lastName, email, password, role, professional, treatment, imageUrl}) }
+    signupPatient = (username, lastName, email, password, birthDate, description, role, professional, treatment, imageUrl ) => {
+        return this.service.post('/new-patient', { username, lastName, email, password, birthDate, description, role, professional, treatment, imageUrl}) }
     getPatients = () => this.service.get('/getAllPatients')
     getOnePatient = id => this.service.get(`/getOnePatient/${id}`)
     handleUpload = theFile => this.service.post('/upload', theFile)

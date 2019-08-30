@@ -7,6 +7,8 @@ const patientsSchema = new Schema({
     lastName: { type: String, maxlength:15, required: true },
     email: {type: String, requerid: true },
     password: {type: String, required: true},
+    birthDate: {type: String},
+    description: {type: String},
     role: { type: String, default: "PATIENT"},
     professional: { type: String},
     treatment: {

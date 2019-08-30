@@ -55,7 +55,7 @@ class PatientDetails extends Component {
                             <div className="col-md-4">
                                 <h2 className="name-patient"> {this.state.patient.username} {this.state.patient.lastName}</h2>
                                 <p className="email">email: {this.state.patient.email}</p>
-                                <p className="info-patient"><strong>Fecha de nacimiento:</strong> </p>
+                                <p className="info-patient"><strong>Fecha de nacimiento:</strong> {this.state.patient.birthDate} </p>
                                 <p className="info-patient"><strong>Tratamiento:</strong> {this.state.patient.treatment}</p>
                                 <p className="info-patient"><strong>Descripción:</strong> {this.state.patient.description}</p>
                             </div>
@@ -71,7 +71,7 @@ class PatientDetails extends Component {
                     <hr></hr>
                     <h4>Autorregistros</h4>
 
-                    <div className="row autoregisterText">
+                    <div className="autoregisterText">
                         {this.state.registers && this.state.registers.map(register => <RegistersPatient key={register._id} {...register} />)}
                     </div>
                 </article>

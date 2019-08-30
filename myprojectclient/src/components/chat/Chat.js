@@ -36,11 +36,13 @@ const chatInjector = compose(
 
 export const Chat = chatInjector(({messages, setMessages})=> (
     <ChatWrapper>
+      <div className="msgContainer">
       {messages.map(({ type, msg }, idx) => (
         <Message server={type === "server" ? true : false} key={idx}>
           {msg}
         </Message>
       ))}
+      </div>
       <InputBox
         newMessage={msg => {
           socket.emit("mensajeria", msg);

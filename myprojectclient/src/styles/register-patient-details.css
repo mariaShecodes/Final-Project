@@ -3,10 +3,8 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgb(232, 231, 231);
     background-color: rgb(250, 250, 250);
-    width: 100%;
-    margin-top: 1em;
-    margin-bottom: 20px;
-    margin-left: 10%;
+    width: 80%;
+    margin: 20px 10%;
 
     display: inline-block;
     transition-duration: 0.45s;
@@ -35,7 +33,7 @@
     margin-right: 30%;
 
     display: inline-block;
-    transition-duration: 0.45s;
+    transition-duration: 0.6s;
     transition-property: transform;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transform: translateZ(0);
@@ -51,18 +49,7 @@
 }
 .caja-info-registro {
     padding-top: 1.6em;
-
-    display: inline-block;
-    transition-duration: 0.45s;
-    transition-property: transform;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    transform: translateZ(0);
 }
-.caja-info-registro:hover {
-    transform: scale(1.1);
-}
-
-
 
 
 .p-info {

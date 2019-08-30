@@ -66,7 +66,7 @@ class Login extends Component {
                     <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" />
                
                 <Form.Group controlId="formBasicCheckbox" className="label-login">
-                    <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Profesional?" className="title-login professional-check"/>
+                    <Form.Check name="role" type="checkbox" value={this.state.role} onChange={this.handleCheckChange} label="¿Eres profesional?" className="title-login professional-check"/>
                 </Form.Group>
                
                 <Button variant="info" type="submit" className="button-session">Iniciar sesión</Button>
