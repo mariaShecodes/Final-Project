@@ -15,6 +15,10 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transform: translateZ(0);
 }
+.patient-card:hover {
+    transform: scale(1.1);
+    background-color: rgb(238, 238, 238);
+}
 
 .photo-patient {
     width: 50%;

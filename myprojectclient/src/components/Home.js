@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
+import '../styles/home.css'
 
 
-// import '../styles/home.css'
 
 class Home extends Component {
     
     render() {
         return (
             <div>
+                <img src={ require('./image/image.png')} className="" id="background-video" ></img>
+
                 <section className="section1">
                     <p className="slogan">La psicología al alcance de tu mano</p>
                     <div className="btn-home">
@@ -55,26 +57,29 @@ class Home extends Component {
                     </Container>
                 </section>
                 <section className="section3">
-                    <Container>
-                        <Row>
-                            <Col>
-                            <img src={ require('./image/testimonio01.png')} className="image-testimonio"></img>
-                            </Col>
-                            <Col>
-                                <p className="testimonio">Hace unos meses sufrí mi primer ataque de ansiedad. Identificar la causa de lo que me ocurría no resultó fácil, pero gracias a Think App pude conocer en detalle cúando se podrucían los ataques, dónde me encontraba y cómo me sentía en el momento exacto.</p>
-                                <p className="name-testimonio">Sonia Rodríguez</p>
-                            </Col>
-                         
-                            <Col>
-                            <img src={ require('./image/testimonio03.png')} className="image-testimonio"></img>
-                            </Col>
-                            <Col>
-                                <p className="testimonio testimonio-professional">Think App es la herramienta digital que necesitaba como profesional de la salud mental, permitiendo tener información más completa para los diagnósticos y tratamientos-</p>
-                                <p className="name-testimonio name-professional">Alberto Núñez</p>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <div className="caja-testimonios">
+                        <Container>
+                            <Row>
+                                <Col>
+                                <img src={ require('./image/testimonio01.png')} className="image-testimonio"></img>
+                                </Col>
+                                <Col>
+                                    <p className="testimonio">Hace unos meses sufrí mi primer ataque de ansiedad. Identificar la causa no resultó fácil, pero gracias a Think App pude conocer en detalle cúando se podrucían, dónde me encontraba y cómo me sentía en el momento exacto.</p>
+                                    <p className="name-testimonio">Sonia Rodríguez</p>
+                                </Col>
+                            
+                                <Col>
+                                <img src={ require('./image/testimonio03.png')} className="image-testimonio"></img>
+                                </Col>
+                                <Col>
+                                    <p className="testimonio testimonio-professional">Think App es la herramienta digital que necesitaba como profesional de la salud mental, permitiendo tener información más completa en los diagnósticos y tratamientos-</p>
+                                    <p className="name-testimonio name-professional">Alberto Núñez</p>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </div>
                 </section>
+               
 
                 <section className="section4">
                         <p className="info-opt-app one">Consulta tu actividad física y estado de ánimo de los últimos días</p>

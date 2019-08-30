@@ -16,9 +16,11 @@
     "react-dom": "^16.9.0",
     "react-iframe": "^1.8.0",
     "react-mic": "^12.4.1",
+    "react-mp3-recorder": "^1.1.2",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "recompose": "^0.30.0",
+    "recorderjs": "^1.0.1",
     "socket.io-client": "^2.2.0"
   },
   "scripts": {

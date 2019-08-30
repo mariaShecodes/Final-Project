@@ -1,15 +1,25 @@
+#background-video{
+
+    background-size: cover;
+    width: 107vw;
+    /* float: left; */
+    top: 0;
+    padding: none;
+    position: fixed;
+    z-index: -100;
+}
+
 .section1 {
-    background-image: url('../components/image/image.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 760px;
+    height: 750px;
 }
 .slogan {
     font-size: 3em;
     color: rgb(26, 26, 26);
     width: 100%;
     text-align: center;
-    padding-top: 5em;
+    padding-top: 6em;
   }
 .btn-home {
     width: 100%;
@@ -24,8 +34,8 @@
 .info-parraf {
     font-size: 2em;
     padding-top: 1.5em;
-    color: rgb(247, 247, 247)
-
+    color: rgb(247, 247, 247);
+    text-align: center;
 }
 
 .section2 {
@@ -49,27 +59,36 @@
     margin-bottom: 3em;
 }
 .section4 {
-    background-image: url('../components/image/iphone02.png');
+    background-image: url('../components/image/app.png');
     background-size: cover;
     width: 100vmax;
     height: 760px;
 }
 .section3 {
-    margin-right: 7em;
+    /* background-color: rgb(247, 247, 247); */
+    background-image: linear-gradient(to right, rgb(116, 188, 196) , rgb(153, 189, 199));
+   
+    
+}
+.caja-testimonios {
+    margin-right: 9em;
 }
 .testimonio {
-    font-size: .8em;
+    font-size: 1em;
     text-align: left;
-    padding-top: 3em;                                            
+    padding-top: 3em;
+    color: rgb(245, 245, 245);                                            
 }
 .testimonio-professional {
     padding-top: 4em;
 }
 .name-testimonio {
     text-align: right;
+    color: rgb(247, 247, 247); 
 }
 .name-professional {
     padding-top: 1.5em;
+    color: rgb(247, 247, 247); 
 
 }
 .image-testimonio {
@@ -121,3 +140,7 @@
     text-decoration-line: none;
 }
 
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
