@@ -1,10 +1,18 @@
 .details-autoregisters-title {
     margin-top: .5em;
-
 }
 .image-context {
     width: 120%;
     border-radius: 5%;
+
+    display: inline-block;
+    transition-duration: 0.4s;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform: translateZ(0);
+}
+.image-context:hover {
+    transform: scale(1.6);
 }
 .first-details-register {
     margin-top: 1em;

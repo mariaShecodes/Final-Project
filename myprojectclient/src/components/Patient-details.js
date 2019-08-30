@@ -32,29 +32,41 @@ class PatientDetails extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="encabezado">
-                    <h2 className="details-patients-title">Detalles del Paciente</h2>
-                    <div className="btn-volver">
-                        <Link className="link-simple link" to="/professional/area">Volver</Link>                       
+            <div className="">
+                <div className="container encabezado">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <h2 className="details-patients-title">Detalles del Paciente</h2>
+                        </div>
+                        <div className="col-md-4">
+                            <Link className="link-simple link enlace-volver-sup" to="/professional/area">Volver</Link>                       
+                        </div>
                     </div>
                 </div>
+                
                 <hr></hr>
-                <Chat />
+               
                 <article>
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-3">
-                            <h2 className="name-patient"> {this.state.patient.username} {this.state.patient.lastName}</h2>
-                            <p className="email">email: {this.state.patient.email}</p>
-                            <p className="info-patient"><strong>Fecha de nacimiento:</strong> </p>
-                            <p className="info-patient"><strong>Tratamiento:</strong> {this.state.patient.treatment}</p>
-                            <p className="info-patient"><strong>Descripción:</strong> {this.state.patient.description}</p>
-                        </div>
-                        <div className="col-md-6">
-                            <img className="image-patient" src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                    <div className="container primera-caja">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <img className="image-patient" src={this.state.patient.imageUrl} alt="Imagen de perfil"></img>
+                            </div>
+                            <div className="col-md-4">
+                                <h2 className="name-patient"> {this.state.patient.username} {this.state.patient.lastName}</h2>
+                                <p className="email">email: {this.state.patient.email}</p>
+                                <p className="info-patient"><strong>Fecha de nacimiento:</strong> </p>
+                                <p className="info-patient"><strong>Tratamiento:</strong> {this.state.patient.treatment}</p>
+                                <p className="info-patient"><strong>Descripción:</strong> {this.state.patient.description}</p>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="chat">
+                                    <Chat />
+                                </div>
+                            </div>
                         </div>
                     </div>
+
 
                     <hr></hr>
                     <h4>Autorregistros</h4>

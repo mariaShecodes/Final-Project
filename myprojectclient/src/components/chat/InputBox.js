@@ -60,7 +60,7 @@ export class InputBox extends Component {
             this.setState({ text: e.target.value });
           }}>
         </Input>
-        <Button onClick={() => this.send()}>Send</Button>
+        <Button onClick={() => this.send()}>Enviar</Button>
 
       </div>
     )
