@@ -5,7 +5,7 @@ import {Message} from './Message'
 import io from "socket.io-client";
 import {InputBox} from './InputBox'
 
-const socket = io("localhost:5000");
+const socket = io("https://think-app.herokuapp.com");
 
 const ChatWrapper = styled.div`
   border: 1px solid rgb(23, 162, 184);
