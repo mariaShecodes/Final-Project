@@ -1,3 +1,4 @@
+
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
@@ -54,6 +55,13 @@
 .navbar-professional {
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(249, 249, 249));
 }
+.container-home {
+    max-width: 100%;
+    position: fixed;
+    background-color:  rgb(244, 244, 244);
+    z-index: 100;
+}
+
 
     
 

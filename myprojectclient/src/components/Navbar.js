@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import {Button} from 'react-bootstrap'
 import Services from '../services/auth.services'
 
 import '../styles/navbar.css'
@@ -20,7 +19,6 @@ class Navbar extends Component {
 
         const saludo = this.props.userInSession ? this.props.userInSession.data.username : 'Hello baby'
         const image = this.props.userImage
-      
 
         if(this.props.userInSession) {
             if(this.props.userRole === 'PROFESSIONAL') {
@@ -68,7 +66,7 @@ class Navbar extends Component {
             }    
         } else {
             return(
-                <div className="container container-home">
+                <div className="container container-home"> 
                     <div className="row">
                         <Link to="/" className="col-md-8 font-weight-light logo logo-link">ThinkApp</Link>
                         <div className="col-md-4">

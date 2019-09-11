@@ -27,7 +27,7 @@ class App extends Component {
     this.state = { loggedInUser: null, show: false, showModalSignup: false }     // loggerInUser te lo traes del ProtectedRoute  
     this.authServices = new AuthServices()
   }
-  
+
   // MODAL SIGNUP
   handleModalOpen = () => this.setState({ showModalSignup: true })
   handleModalClose = () => this.setState({ showModalSignup: false })
@@ -44,6 +44,9 @@ class App extends Component {
   checkRedirect = (theLoggedUser)=> {
     theLoggedUser.data.role === 'PROFESSIONAL' ? this.props.history.push('/professional/area') : this.props.history.push('/patient/area')
   }
+
+
+
 
   setTheUser = user => {
     this.setState({ loggedInUser: user })
@@ -75,7 +78,6 @@ class App extends Component {
   }
   
 
-
   render() {
     
     this.fetchUser()
@@ -84,7 +86,7 @@ class App extends Component {
     if(this.state.loggedInUser) {
       return (
         <>
-        <Navbar  setUser={this.setTheUser} userInSession={this.state.loggedInUser} userRole={this.state.loggedInUser.data.role} userImage={this.state.loggedInUser.data.imageUrl}logout={this.logout} />
+        <Navbar setUser={this.setTheUser} userInSession={this.state.loggedInUser} userRole={this.state.loggedInUser.data.role} userImage={this.state.loggedInUser.data.imageUrl}logout={this.logout} />
         <Switch>
           <Route path="/" exact component={Home}/>
           <ProtectedRoute path="/professional/area" user={this.state.loggedInUser} component={ProfessionalArea} />

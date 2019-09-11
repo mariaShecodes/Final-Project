@@ -10,7 +10,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <img src={ require('./image/image.png')} className="" id="background-video" ></img>
+                <img src={ require('./image/image.png')} className="" id="background-image" ></img>
 
                 <section className="section1">
                     <p className="slogan">La psicología al alcance de tu mano</p>
@@ -23,7 +23,7 @@ class Home extends Component {
                     <p className="info-parraf">Información más completa con autorregistros digitales</p>
                 </div>
 
-                <section className="section2" id="info">
+                <section className="section2" >
                     <Container>              
                         <Row>
                             <Col></Col>
@@ -32,12 +32,12 @@ class Home extends Component {
                                     <Row>
                                         <Col>
                                             <img src={ require('./image/clipboard.svg')} alt="icon-1" className="icon" />
-                                            <p className="text-icon">Falta de integración de Salud Mental en atención primaria</p>
+                                            <p className="text-icon">Falta de integración de la Salud Mental en atención primaria</p>
                                         </Col>
 
                                         <Col>
                                             <img src={ require('./image/group.svg')} alt="icon-2" className="icon" />
-                                            <p className="text-icon">1 de cada 4 persona sufre o sufrirá algún problema psicológico</p>
+                                            <p className="text-icon">1 de cada 4 personas sufre o sufrirá algún problema psicológico</p>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -48,7 +48,7 @@ class Home extends Component {
 
                                         <Col>
                                             <img src={ require('./image/negative-vote.svg')} alt="icon-4" className="icon" />
-                                            <p className="text-icon">La estigmatizado o discriminado es uno de una de las principales causas </p>
+                                            <p className="text-icon">Miedo a ser estigmatizado o discriminado es una de las principales causas para no acudir al psicólogo</p>
                                         </Col>
                                     </Row>
                                 </Container>
@@ -61,19 +61,19 @@ class Home extends Component {
                         <Container>
                             <Row>
                                 <Col>
-                                <img src={ require('./image/testimonio01.png')} className="image-testimonio"></img>
+                                <img src={ require('./image/testimonio01.png')} className='image-testimonio'></img>
                                 </Col>
                                 <Col>
-                                    <p className="testimonio">Hace unos meses sufrí mi primer ataque de ansiedad. Identificar la causa no resultó fácil, pero gracias a Think App pude conocer en detalle cúando se podrucían, dónde me encontraba y cómo me sentía en el momento exacto.</p>
+                                    <p className="testimonio">Hace unos meses sufrí mi primer ataque de ansiedad. Identificar la causa no resultó fácil, pero gracias a Think App pude conocer en detalle cúando se producía, dónde me encontraba y cómo me sentía en el momento exacto.</p>
                                     <p className="name-testimonio">Sonia Rodríguez</p>
                                 </Col>
                             
                                 <Col>
-                                <img src={ require('./image/testimonio03.png')} className="image-testimonio"></img>
+                                <img src={ require('./image/testimonio03.png')} className='image-testimonio'></img>
                                 </Col>
                                 <Col>
-                                    <p className="testimonio testimonio-professional">Think App es la herramienta digital que necesitaba como profesional de la salud mental, permitiendo tener información más completa en los diagnósticos y tratamientos-</p>
-                                    <p className="name-testimonio name-professional">Alberto Núñez</p>
+                                    <p className="testimonio testimonio-professional">Think App es la herramienta digital que necesitaba como profesional de la salud mental, permitiendo tener información más completa en los diagnósticos y tratamientos.</p>
+                                    <p className="name-testimonio name-professional">Alberto Miller</p>
                                 </Col>
                             </Row>
                         </Container>
@@ -81,7 +81,7 @@ class Home extends Component {
                 </section>
                
 
-                <section className="section4">
+                <section className="section4" id="info">
                         <p className="info-opt-app one">Consulta tu actividad física y estado de ánimo de los últimos días</p>
                         <p className="info-opt-app two">Registra los momentos de mayor relevancia con imágenes y audio</p>
                 </section>

@@ -1,5 +1,4 @@
-#background-video{
-
+#background-image{
     background-size: cover;
     width: 107vw;
     /* float: left; */
@@ -8,7 +7,6 @@
     position: fixed;
     z-index: -100;
 }
-
 .section1 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,6 +49,7 @@
     width: 20%;
     margin-left: 40%; 
 }
+
 .text-icon {
     text-align: center;
     width: 100%;
@@ -66,9 +65,7 @@
 }
 .section3 {
     /* background-color: rgb(247, 247, 247); */
-    background-image: linear-gradient(to right, rgb(116, 188, 196) , rgb(153, 189, 199));
-   
-    
+    background-image: linear-gradient(to right, rgb(116, 188, 196) , rgb(153, 189, 199)); 
 }
 .caja-testimonios {
     margin-right: 9em;
@@ -87,7 +84,7 @@
     color: rgb(247, 247, 247); 
 }
 .name-professional {
-    padding-top: 1.5em;
+    padding-top: .5em;
     color: rgb(247, 247, 247); 
 
 }
@@ -139,8 +136,3 @@
     color: rgb(71, 214, 224);
     text-decoration-line: none;
 }
-
-@keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
