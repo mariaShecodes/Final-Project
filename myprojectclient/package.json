@@ -6,7 +6,7 @@
     "@emotion/core": "^10.0.16",
     "@emotion/style": "^0.8.0",
     "@emotion/styled": "^10.0.15",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "dotenv-cli": "^2.0.1",
     "react": "^16.9.0",
